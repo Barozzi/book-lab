@@ -13,6 +13,7 @@ func main() {
 
 	r.Route("/api", func(r chi.Router) {
 		routes.BooksRouter(r)
+		routes.HealthRouter(r)
 	})
 
 	// Server it up
