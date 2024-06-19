@@ -1,6 +1,9 @@
 run:
 	go run main.go
 
+test:
+	go test -v ./...
+
 docker:
 	docker build -t book-lab-api:latest .
 
