@@ -58,69 +58,65 @@ func (br *BookResponse) fromVolumeInfo(vi model.VolumeInfo) {
 	br.CanonicalVolumeLink = vi.CanonicalVolumeLink
 }
 
-func ApiVersionCtx(version string) context.Context {
-	return context.WithValue(context.Background(), "version", version)
+func BooksRouter(r chi.Router) {
+	r.Post("/books/author", queryByAuthor)
+	r.Post("/books/title", queryByTitle)
 }
 
-func BooksRouter(r chi.Router) {
-	r.Post("/books/author", func(w http.ResponseWriter, r *http.Request) {
+func queryByAuthor(w http.ResponseWriter, r *http.Request) {
+	// Parse the request body
+	var br BooksRequest
+	err := json.NewDecoder(r.Body).Decode(&br)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
 
-		// Parse the request body
-		var br BooksRequest
-		err := json.NewDecoder(r.Body).Decode(&br)
-		if err != nil {
-			http.Error(w, err.Error(), http.StatusBadRequest)
-			return
-		}
+	// Fetch data from external API
+	var bc client.BookClient
+	books, err := bc.ByAuthor(context.Background(), br.Author, 25)
+	if err != nil {
+		fmt.Printf("error fetching book data from external api: %s", err.Error())
+		return
+	}
 
-		// Fetch data from external API
-		var bc client.BookClient
-		books, err := bc.ByAuthor(context.Background(), br.Author, 25)
-		if err != nil {
-			fmt.Printf("error fetching book data from external api: %s", err.Error())
-			return
-		}
+	// Format as JSON
+	var resp AuthorResponse
+	resp.Author = br.Author
+	for _, book := range books.Items {
+		var br BookResponse
+		br.fromVolumeInfo(book.VolumeInfo)
+		resp.Books = append(resp.Books, br)
+	}
+	jsonData, err := json.Marshal(resp)
+	fmt.Fprint(w, string(jsonData))
+}
 
-		// Format as JSON
-		var resp AuthorResponse
-		resp.Author = br.Author
-		for _, book := range books.Items {
-			var br BookResponse
-			br.fromVolumeInfo(book.VolumeInfo)
-			resp.Books = append(resp.Books, br)
-		}
-		jsonData, err := json.Marshal(resp)
-		fmt.Fprint(w, string(jsonData))
-	})
+func queryByTitle(w http.ResponseWriter, r *http.Request) {
+	// Parse the request body
+	var br BooksRequest
+	err := json.NewDecoder(r.Body).Decode(&br)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
 
-	r.Post("/books/title", func(w http.ResponseWriter, r *http.Request) {
+	// Fetch data from external API
+	var bc client.BookClient
+	books, err := bc.ByTitle(context.Background(), br.Title, 1)
+	if err != nil {
+		fmt.Printf("error fetching book data from external api: %s", err.Error())
+		return
+	}
 
-		// Parse the request body
-		var br BooksRequest
-		err := json.NewDecoder(r.Body).Decode(&br)
-		if err != nil {
-			http.Error(w, err.Error(), http.StatusBadRequest)
-			return
-		}
-
-		// Fetch data from external API
-		var bc client.BookClient
-		books, err := bc.ByTitle(context.Background(), br.Title, 1)
-		if err != nil {
-			fmt.Printf("error fetching book data from external api: %s", err.Error())
-			return
-		}
-
-		// Format as JSON
-		var resp TitleResponse
-		resp.Title = br.Title
-		for _, book := range books.Items {
-			var br BookResponse
-			br.fromVolumeInfo(book.VolumeInfo)
-			resp.Books = append(resp.Books, br)
-		}
-		jsonData, err := json.Marshal(resp)
-		fmt.Fprint(w, string(jsonData))
-	})
-
+	// Format as JSON
+	var resp TitleResponse
+	resp.Title = br.Title
+	for _, book := range books.Items {
+		var br BookResponse
+		br.fromVolumeInfo(book.VolumeInfo)
+		resp.Books = append(resp.Books, br)
+	}
+	jsonData, err := json.Marshal(resp)
+	fmt.Fprint(w, string(jsonData))
 }

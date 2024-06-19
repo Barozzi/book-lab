@@ -17,6 +17,6 @@ func main() {
 	})
 
 	// Server it up
-	fmt.Println("listening on http://localhost:8080")
+	fmt.Println("listening on http://localhost:8080/api")
 	http.ListenAndServe(":8080", r)
 }
