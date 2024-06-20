@@ -16,9 +16,6 @@ func setupHealthRouter() http.Handler {
 }
 
 func TestHealthRouter(t *testing.T) {
-	type args struct {
-		r chi.Router
-	}
 	tests := []struct {
 		name           string
 		method         string

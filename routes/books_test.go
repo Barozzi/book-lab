@@ -2,80 +2,124 @@ package routes
 
 import (
 	"bytes"
+	"context"
 	"encoding/json"
 	"net/http"
 	"net/http/httptest"
-	"reflect"
 	"testing"
 
+	model "example.com/book-learn/models"
 	"github.com/go-chi/chi/v5"
 	"github.com/stretchr/testify/assert"
 )
 
-func setupBooksRouter() http.Handler {
+// MockClient
+type MockClient struct {
+	Response model.Books
+	Err      error
+}
+
+func (cli MockClient) ByAuthor(ctx context.Context, author string, limit int) (model.Books, error) {
+	return cli.Response, cli.Err
+}
+func (cli MockClient) ByTitle(ctx context.Context, author string, limit int) (model.Books, error) {
+	return cli.Response, cli.Err
+}
+
+// Mock Router
+func setupBooksRouter(response model.Books, err error) http.Handler {
 	r := chi.NewRouter()
-	BooksRouter(r)
+	cli := MockClient{
+		Response: response,
+		Err:      err,
+	}
+	BooksRouter(r, cli)
 	return r
 }
 
-func TestPostBooksAuthor(t *testing.T) {
-	r := setupBooksRouter()
-
+func TestBooksRouter(t *testing.T) {
 	booksReq := BooksRequest{
 		Author: "test-author",
+		Title:  "test-title",
 	}
-	requestBody, _ := json.Marshal(booksReq)
+	testRequestBody, _ := json.Marshal(booksReq)
 
-	req, _ := http.NewRequest("POST", "/books/author", bytes.NewBuffer(requestBody))
-	req.Header.Set("Content-Type", "application/json")
-	w := httptest.NewRecorder()
-	r.ServeHTTP(w, req)
-
-	expectedResponse := AuthorResponse{
-		Author: "test-author",
-		Books:  nil,
+	mockAuthorItems := []model.GoogleBookItem{
+		{
+			VolumeInfo: model.GoogleBookVolumeInfo{
+				Title: "test-title-1",
+			},
+		},
+		{
+			VolumeInfo: model.GoogleBookVolumeInfo{
+				Title: "test-title-2",
+			},
+		},
 	}
-	expectedResponseBody, _ := json.Marshal(expectedResponse)
 
-	assert.Equal(t, http.StatusOK, w.Code)
-	assert.Equal(t, string(expectedResponseBody), w.Body.String())
-}
-
-func TestPostBooksTitle(t *testing.T) {
-	r := setupBooksRouter()
-
-	booksReq := BooksRequest{
-		Title: "test-title",
+	expectedAuthorResponseBody := "{\"Author\":\"test-author\",\"Books\":[{\"Title\":\"test-title-1\",\"Authors\":null,\"PublishedDate\":\"\",\"Description\":\"\",\"PageCount\":0,\"Categories\":null,\"ContentVersion\":\"\",\"PanelizationSummary\":{\"containsEpubBubbles\":false,\"containsImageBubbles\":false},\"ImageLinks\":{\"smallThumbnail\":\"\",\"thumbnail\":\"\"},\"Language\":\"\",\"PreviewLink\":\"\",\"InfoLink\":\"\",\"CanonicalVolumeLink\":\"\"},{\"Title\":\"test-title-2\",\"Authors\":null,\"PublishedDate\":\"\",\"Description\":\"\",\"PageCount\":0,\"Categories\":null,\"ContentVersion\":\"\",\"PanelizationSummary\":{\"containsEpubBubbles\":false,\"containsImageBubbles\":false},\"ImageLinks\":{\"smallThumbnail\":\"\",\"thumbnail\":\"\"},\"Language\":\"\",\"PreviewLink\":\"\",\"InfoLink\":\"\",\"CanonicalVolumeLink\":\"\"}]}"
+	mockClientAuthorResponse := model.Books{
+		Kind:       "mock-kind",
+		TotalItems: 47,
+		Items:      mockAuthorItems,
 	}
-	requestBody, _ := json.Marshal(booksReq)
 
-	req, _ := http.NewRequest("POST", "/books/title", bytes.NewBuffer(requestBody))
-	req.Header.Set("Content-Type", "application/json")
-	w := httptest.NewRecorder()
-	r.ServeHTTP(w, req)
-
-	expectedResponse := TitleResponse{
-		Title: "test-title",
-		Books: nil,
+	expectedTitleResponseBody := "{\"Title\":\"test-title\",\"Books\":[{\"Title\":\"test-title-1\",\"Authors\":[\"test-author\"],\"PublishedDate\":\"\",\"Description\":\"\",\"PageCount\":0,\"Categories\":null,\"ContentVersion\":\"\",\"PanelizationSummary\":{\"containsEpubBubbles\":false,\"containsImageBubbles\":false},\"ImageLinks\":{\"smallThumbnail\":\"\",\"thumbnail\":\"\"},\"Language\":\"\",\"PreviewLink\":\"\",\"InfoLink\":\"\",\"CanonicalVolumeLink\":\"\"}]}"
+	mockClientTitleResponse := model.Books{
+		Kind:       "mock-kind",
+		TotalItems: 47,
+		Items: []model.GoogleBookItem{
+			{
+				VolumeInfo: model.GoogleBookVolumeInfo{
+					Authors: []string{"test-author"},
+					Title:   "test-title-1",
+				},
+			},
+		},
 	}
-	expectedResponseBody, _ := json.Marshal(expectedResponse)
 
-	assert.Equal(t, http.StatusOK, w.Code)
-	assert.Equal(t, string(expectedResponseBody), w.Body.String())
-}
-
-func Test_setupBooksRouter(t *testing.T) {
 	tests := []struct {
-		name string
-		want http.Handler
+		name               string
+		method             string
+		path               string
+		expectedStatus     int
+		mockClientResponse model.Books
+		mockClientError    error
+		testRequestBody    []byte
+		expectedBody       string
 	}{
-		// TODO: Add test cases.
+		{
+			name:               "POST:/books/author",
+			method:             "POST",
+			path:               "/books/author",
+			mockClientResponse: mockClientAuthorResponse,
+			mockClientError:    nil,
+			expectedStatus:     http.StatusOK,
+			testRequestBody:    testRequestBody,
+			expectedBody:       expectedAuthorResponseBody,
+		},
+		{
+			name:               "POST:/books/title",
+			method:             "POST",
+			path:               "/books/title",
+			mockClientResponse: mockClientTitleResponse,
+			mockClientError:    nil,
+			expectedStatus:     http.StatusOK,
+			testRequestBody:    testRequestBody,
+			expectedBody:       expectedTitleResponseBody,
+		},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := setupBooksRouter(); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("setupBooksRouter() = %v, want %v", got, tt.want)
-			}
+			req, _ := http.NewRequest(tt.method, tt.path, bytes.NewBuffer(tt.testRequestBody))
+			req.Header.Set("Content-Type", "application/json")
+			w := httptest.NewRecorder()
+			r := setupBooksRouter(tt.mockClientResponse, tt.mockClientError)
+			r.ServeHTTP(w, req)
+
+			assert.Equal(t, tt.expectedStatus, w.Code)
+			assert.Equal(t, string(tt.expectedBody), w.Body.String())
 		})
 	}
 }

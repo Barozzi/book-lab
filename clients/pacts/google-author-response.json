@@ -1,0 +1,1668 @@
+{
+  "kind": "books#volumes",
+  "totalItems": 34,
+  "items": [
+    {
+      "kind": "books#volume",
+      "id": "IYUQLS0SnpEC",
+      "etag": "P0Tx5IiHrRo",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/IYUQLS0SnpEC",
+      "volumeInfo": {
+        "title": "Letters to My Son",
+        "authors": [
+          "William Gibson"
+        ],
+        "publishedDate": "1917",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "COLUMBIA:CU15153703"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 256,
+        "printType": "BOOK",
+        "categories": [
+          "Engineers"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.3.4.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=IYUQLS0SnpEC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=IYUQLS0SnpEC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=IYUQLS0SnpEC&printsec=frontcover&dq=inauthor:william+gibson+langRestrict:en&hl=&cd=1&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=IYUQLS0SnpEC&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=IYUQLS0SnpEC"
+      },
+      "saleInfo": {
+        "country": "US",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=IYUQLS0SnpEC&rdid=book-IYUQLS0SnpEC&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "US",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.com/books/download/Letters_to_My_Son.epub?id=IYUQLS0SnpEC&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=IYUQLS0SnpEC&hl=&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "moUrAQAAIAAJ",
+      "etag": "d8lqVuWkCiw",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/moUrAQAAIAAJ",
+      "volumeInfo": {
+        "title": "Reminiscences",
+        "subtitle": "George Gibson ; Edited by William Gibson",
+        "authors": [
+          "George Gibson"
+        ],
+        "publishedDate": "2004",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "STANFORD:36105121950591"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 92,
+        "printType": "BOOK",
+        "categories": [
+          "Biography & Autobiography"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.4.1.0.preview.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=moUrAQAAIAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=moUrAQAAIAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=moUrAQAAIAAJ&q=inauthor:william+gibson+langRestrict:en&dq=inauthor:william+gibson+langRestrict:en&hl=&cd=2&source=gbs_api",
+        "infoLink": "http://books.google.com/books?id=moUrAQAAIAAJ&dq=inauthor:william+gibson+langRestrict:en&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Reminiscences.html?hl=&id=moUrAQAAIAAJ"
+      },
+      "saleInfo": {
+        "country": "US",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "US",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=moUrAQAAIAAJ&hl=&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "JZ4nAAAAMAAJ",
+      "etag": "7qYuSnhJNzM",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/JZ4nAAAAMAAJ",
+      "volumeInfo": {
+        "title": "Notes on how to Turn a Phoenix Into Ashes",
+        "subtitle": "The Story of the Stage Production, with the Text, of Golda",
+        "authors": [
+          "William Gibson"
+        ],
+        "publisher": "Atheneum Books for Young Readers",
+        "publishedDate": "1978",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "UOM:39015011687681"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 168,
+        "printType": "BOOK",
+        "categories": [
+          "Biography & Autobiography"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "2.8.2.0.preview.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=JZ4nAAAAMAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=JZ4nAAAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=JZ4nAAAAMAAJ&q=inauthor:william+gibson+langRestrict:en&dq=inauthor:william+gibson+langRestrict:en&hl=&cd=3&source=gbs_api",
+        "infoLink": "http://books.google.com/books?id=JZ4nAAAAMAAJ&dq=inauthor:william+gibson+langRestrict:en&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Notes_on_how_to_Turn_a_Phoenix_Into_Ashe.html?hl=&id=JZ4nAAAAMAAJ"
+      },
+      "saleInfo": {
+        "country": "US",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "US",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=JZ4nAAAAMAAJ&hl=&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "QemCZwEACAAJ",
+      "etag": "iWOZH7VcKNo",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/QemCZwEACAAJ",
+      "volumeInfo": {
+        "title": "Distrust that Particular Flavor",
+        "authors": [
+          "William Gibson"
+        ],
+        "publisher": "Putnam Adult",
+        "publishedDate": "2012",
+        "description": "A collection of nonfiction writings includes essays discussing the Singapore trial of a drug trafficker, what's wrong with the Internet, and and how music documents modern culture.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "039915843X"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9780399158438"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 0,
+        "printType": "BOOK",
+        "categories": [
+          "Canadian essays"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=QemCZwEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=QemCZwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=QemCZwEACAAJ&dq=inauthor:william+gibson+langRestrict:en&hl=&cd=4&source=gbs_api",
+        "infoLink": "http://books.google.com/books?id=QemCZwEACAAJ&dq=inauthor:william+gibson+langRestrict:en&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Distrust_that_Particular_Flavor.html?hl=&id=QemCZwEACAAJ"
+      },
+      "saleInfo": {
+        "country": "US",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "US",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=QemCZwEACAAJ&hl=&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "A collection of nonfiction writings includes essays discussing the Singapore trial of a drug trafficker, what&#39;s wrong with the Internet, and and how music documents modern culture."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "q3lmAAAAcAAJ",
+      "etag": "wkooqzGpu6A",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/q3lmAAAAcAAJ",
+      "volumeInfo": {
+        "title": "Good Counsel and Advice unto the magistrates and people of Norwich: with a brief relation ... of the sufferings of the Quakers in the said City. [By W. Gibson and others.]",
+        "authors": [
+          "William GIBSON (Quaker, of London.)"
+        ],
+        "publishedDate": "1676",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "BL:A0020992877"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 20,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.4.4.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=q3lmAAAAcAAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=q3lmAAAAcAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=q3lmAAAAcAAJ&printsec=frontcover&dq=inauthor:william+gibson+langRestrict:en&hl=&cd=5&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=q3lmAAAAcAAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=q3lmAAAAcAAJ"
+      },
+      "saleInfo": {
+        "country": "US",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=q3lmAAAAcAAJ&rdid=book-q3lmAAAAcAAJ&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "US",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.com/books/download/Good_Counsel_and_Advice_unto_the_magistr.epub?id=q3lmAAAAcAAJ&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=q3lmAAAAcAAJ&hl=&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "klB4TpLGMvAC",
+      "etag": "wYhcxXLw09E",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/klB4TpLGMvAC",
+      "volumeInfo": {
+        "title": "Reminiscences of Dollar, Tillicoultry, and Other Districts Adjoining the Ochils",
+        "authors": [
+          "William Gibson"
+        ],
+        "publishedDate": "1882",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "HARVARD:32044013659149"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 226,
+        "printType": "BOOK",
+        "categories": [
+          "Clackmannanshire (Scotland)"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.8.10.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=klB4TpLGMvAC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=klB4TpLGMvAC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=klB4TpLGMvAC&printsec=frontcover&dq=inauthor:william+gibson+langRestrict:en&hl=&cd=6&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=klB4TpLGMvAC&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=klB4TpLGMvAC"
+      },
+      "saleInfo": {
+        "country": "US",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=klB4TpLGMvAC&rdid=book-klB4TpLGMvAC&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "US",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.com/books/download/Reminiscences_of_Dollar_Tillicoultry_and.epub?id=klB4TpLGMvAC&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "downloadLink": "http://books.google.com/books/download/Reminiscences_of_Dollar_Tillicoultry_and.pdf?id=klB4TpLGMvAC&hl=&output=pdf&sig=ACfU3U2-lrWUr_o8asj1iCyhgi8LMapPFQ&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=klB4TpLGMvAC&hl=&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "57MfSwAACAAJ",
+      "etag": "rybqD93p3PY",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/57MfSwAACAAJ",
+      "volumeInfo": {
+        "title": "Letters to My Son",
+        "authors": [
+          "William Gibson"
+        ],
+        "publishedDate": "1917",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "OCLC:4938130"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "printType": "BOOK",
+        "categories": [
+          "United States"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=57MfSwAACAAJ&dq=inauthor:william+gibson+langRestrict:en&hl=&cd=7&source=gbs_api",
+        "infoLink": "http://books.google.com/books?id=57MfSwAACAAJ&dq=inauthor:william+gibson+langRestrict:en&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Letters_to_My_Son.html?hl=&id=57MfSwAACAAJ"
+      },
+      "saleInfo": {
+        "country": "US",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "US",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=57MfSwAACAAJ&hl=&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "LoRduAAACAAJ",
+      "etag": "Hoflt7mm2sw",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/LoRduAAACAAJ",
+      "volumeInfo": {
+        "title": "Goodly Creatures",
+        "authors": [
+          "William Gibson"
+        ],
+        "publishedDate": "1980",
+        "description": "Typescript (photocopy) of a two act play by William Gibson. Signed by the author.",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "OCLC:10495285"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 200,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=LoRduAAACAAJ&dq=inauthor:william+gibson+langRestrict:en&hl=&cd=8&source=gbs_api",
+        "infoLink": "http://books.google.com/books?id=LoRduAAACAAJ&dq=inauthor:william+gibson+langRestrict:en&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Goodly_Creatures.html?hl=&id=LoRduAAACAAJ"
+      },
+      "saleInfo": {
+        "country": "US",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "US",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=LoRduAAACAAJ&hl=&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Typescript (photocopy) of a two act play by William Gibson. Signed by the author."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "wYtVswEACAAJ",
+      "etag": "958t79zPgu4",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/wYtVswEACAAJ",
+      "volumeInfo": {
+        "title": "Letters to My Son",
+        "authors": [
+          "William Gibson"
+        ],
+        "publishedDate": "2017-08-19",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "064924298X"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9780649242986"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 258,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=wYtVswEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=wYtVswEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=wYtVswEACAAJ&dq=inauthor:william+gibson+langRestrict:en&hl=&cd=9&source=gbs_api",
+        "infoLink": "http://books.google.com/books?id=wYtVswEACAAJ&dq=inauthor:william+gibson+langRestrict:en&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Letters_to_My_Son.html?hl=&id=wYtVswEACAAJ"
+      },
+      "saleInfo": {
+        "country": "US",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "US",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=wYtVswEACAAJ&hl=&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Our readers see the books the same way that their first readers did decades or a hundred or more years ago. Books from that period are often spoiled by imperfections that did not exist in the original."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "hNgmLwEACAAJ",
+      "etag": "VY8uj9IB4nA",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/hNgmLwEACAAJ",
+      "volumeInfo": {
+        "title": "Boyology - Or Boy Analysis",
+        "authors": [
+          "Henry William Gibson"
+        ],
+        "publisher": "Woods Press",
+        "publishedDate": "2011-09-01",
+        "description": "Many of the earliest books, particularly those dating back to the 1900s and before, are now extremely scarce and increasingly expensive. We are republishing these classic works in affordable, high quality, modern editions, using the original text and artwork.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "1446086860"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9781446086865"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 302,
+        "printType": "BOOK",
+        "categories": [
+          "History"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=hNgmLwEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=hNgmLwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=hNgmLwEACAAJ&dq=inauthor:william+gibson+langRestrict:en&hl=&cd=10&source=gbs_api",
+        "infoLink": "http://books.google.com/books?id=hNgmLwEACAAJ&dq=inauthor:william+gibson+langRestrict:en&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Boyology_Or_Boy_Analysis.html?hl=&id=hNgmLwEACAAJ"
+      },
+      "saleInfo": {
+        "country": "US",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "US",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=hNgmLwEACAAJ&hl=&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "P1VRswEACAAJ",
+      "etag": "bqLrGJX9r7Q",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/P1VRswEACAAJ",
+      "volumeInfo": {
+        "title": "Two for the Seesaw",
+        "authors": [
+          "William Gibson"
+        ],
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "OCLC:973735876"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 199,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=P1VRswEACAAJ&dq=inauthor:william+gibson+langRestrict:en&hl=&cd=11&source=gbs_api",
+        "infoLink": "http://books.google.com/books?id=P1VRswEACAAJ&dq=inauthor:william+gibson+langRestrict:en&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Two_for_the_Seesaw.html?hl=&id=P1VRswEACAAJ"
+      },
+      "saleInfo": {
+        "country": "US",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "US",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=P1VRswEACAAJ&hl=&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "VJvQDSqL3f8C",
+      "etag": "VwPNcFkos8k",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/VJvQDSqL3f8C",
+      "volumeInfo": {
+        "title": "William D. Howells",
+        "authors": [
+          "William M. Gibson"
+        ],
+        "publisher": "U of Minnesota Press",
+        "publishedDate": "1967",
+        "description": "Minnesota Archive Editions uses digital technology to make long-unavailable books once again accessible to scholars, students, researchers, and general readers. Rich with historical and cultural value, these works are published unaltered from the original University of Minnesota Press editions. The books offered through Minnesota Archive Editions are produced in limited quantities according to customer demand and are available through select distribution partners.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781452912028"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1452912025"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 50,
+        "printType": "BOOK",
+        "categories": [
+          "Biography & Autobiography"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.6.3.0.preview.3",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=VJvQDSqL3f8C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=VJvQDSqL3f8C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=VJvQDSqL3f8C&printsec=frontcover&dq=inauthor:william+gibson+langRestrict:en&hl=&cd=12&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=VJvQDSqL3f8C&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=VJvQDSqL3f8C"
+      },
+      "saleInfo": {
+        "country": "US",
+        "saleability": "FOR_SALE_AND_RENTAL",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 25,
+          "currencyCode": "USD"
+        },
+        "retailPrice": {
+          "amount": 14.75,
+          "currencyCode": "USD"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=VJvQDSqL3f8C&rdid=book-VJvQDSqL3f8C&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 25000000,
+              "currencyCode": "USD"
+            },
+            "retailPrice": {
+              "amountInMicros": 14750000,
+              "currencyCode": "USD"
+            },
+            "giftable": true
+          },
+          {
+            "finskyOfferType": 3,
+            "listPrice": {
+              "amountInMicros": 7500000,
+              "currencyCode": "USD"
+            },
+            "retailPrice": {
+              "amountInMicros": 6600000,
+              "currencyCode": "USD"
+            },
+            "rentalDuration": {
+              "unit": "DAY",
+              "count": 90
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "US",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.com/books/download/William_D_Howells-sample-epub.acsm?id=VJvQDSqL3f8C&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.com/books/download/William_D_Howells-sample-pdf.acsm?id=VJvQDSqL3f8C&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=VJvQDSqL3f8C&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Rich with historical and cultural value, these works are published unaltered from the original University of Minnesota Press editions."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "8j5RvgAACAAJ",
+      "etag": "47mkqotWP6c",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/8j5RvgAACAAJ",
+      "volumeInfo": {
+        "title": "BOYOLOGY OR BOY ANALYSIS",
+        "authors": [
+          "Henry William 1867 Gibson"
+        ],
+        "publisher": "Wentworth Press",
+        "publishedDate": "2016-08-25",
+        "description": "This work has been selected by scholars as being culturally important, and is part of the knowledge base of civilization as we know it. This work was reproduced from the original artifact, and remains as true to the original work as possible. Therefore, you will see the original copyright references, library stamps (as most of these works have been housed in our most important libraries around the world), and other notations in the work. This work is in the public domain in the United States of America, and possibly other nations. Within the United States, you may freely copy and distribute this work, as no entity (individual or corporate) has a copyright on the body of the work. As a reproduction of a historical artifact, this work may contain missing or blurred pages, poor pictures, errant marks, etc. Scholars believe, and we concur, that this work is important enough to be preserved, reproduced, and made generally available to the public. We appreciate your support of the preservation process, and thank you for being an important part of keeping this knowledge alive and relevant.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "1361166762"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9781361166765"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 310,
+        "printType": "BOOK",
+        "categories": [
+          "History"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=8j5RvgAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=8j5RvgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=8j5RvgAACAAJ&dq=inauthor:william+gibson+langRestrict:en&hl=&cd=13&source=gbs_api",
+        "infoLink": "http://books.google.com/books?id=8j5RvgAACAAJ&dq=inauthor:william+gibson+langRestrict:en&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/BOYOLOGY_OR_BOY_ANALYSIS.html?hl=&id=8j5RvgAACAAJ"
+      },
+      "saleInfo": {
+        "country": "US",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "US",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=8j5RvgAACAAJ&hl=&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "This work has been selected by scholars as being culturally important, and is part of the knowledge base of civilization as we know it."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "M5NozwEACAAJ",
+      "etag": "pwECL85rPMo",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/M5NozwEACAAJ",
+      "volumeInfo": {
+        "title": "Paris During the Commune",
+        "authors": [
+          "William Gibson"
+        ],
+        "publishedDate": "1895",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "OCLC:222881005"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 0,
+        "printType": "BOOK",
+        "categories": [
+          "France"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=M5NozwEACAAJ&dq=inauthor:william+gibson+langRestrict:en&hl=&cd=14&source=gbs_api",
+        "infoLink": "http://books.google.com/books?id=M5NozwEACAAJ&dq=inauthor:william+gibson+langRestrict:en&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Paris_During_the_Commune.html?hl=&id=M5NozwEACAAJ"
+      },
+      "saleInfo": {
+        "country": "US",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "US",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=M5NozwEACAAJ&hl=&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "ypRWvgAACAAJ",
+      "etag": "vbAlUPGnIXs",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/ypRWvgAACAAJ",
+      "volumeInfo": {
+        "title": "The Year of Grace; A History of the Ulster Revival of 1859",
+        "authors": [
+          "William Gibson, Dr"
+        ],
+        "publisher": "Palala Press",
+        "publishedDate": "2016-05-24",
+        "description": "This work has been selected by scholars as being culturally important, and is part of the knowledge base of civilization as we know it. This work was reproduced from the original artifact, and remains as true to the original work as possible. Therefore, you will see the original copyright references, library stamps (as most of these works have been housed in our most important libraries around the world), and other notations in the work. This work is in the public domain in the United States of America, and possibly other nations. Within the United States, you may freely copy and distribute this work, as no entity (individual or corporate) has a copyright on the body of the work. As a reproduction of a historical artifact, this work may contain missing or blurred pages, poor pictures, errant marks, etc. Scholars believe, and we concur, that this work is important enough to be preserved, reproduced, and made generally available to the public. We appreciate your support of the preservation process, and thank you for being an important part of keeping this knowledge alive and relevant.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "1359263888"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9781359263889"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=ypRWvgAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=ypRWvgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=ypRWvgAACAAJ&dq=inauthor:william+gibson+langRestrict:en&hl=&cd=15&source=gbs_api",
+        "infoLink": "http://books.google.com/books?id=ypRWvgAACAAJ&dq=inauthor:william+gibson+langRestrict:en&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/The_Year_of_Grace_A_History_of_the_Ulste.html?hl=&id=ypRWvgAACAAJ"
+      },
+      "saleInfo": {
+        "country": "US",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "US",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=ypRWvgAACAAJ&hl=&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "This work has been selected by scholars as being culturally important, and is part of the knowledge base of civilization as we know it."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "3P4TvgAACAAJ",
+      "etag": "fBSvrSp+U8s",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/3P4TvgAACAAJ",
+      "volumeInfo": {
+        "title": "Twenty-Five Years of Organized Boys Work in Massachusetts and Rhode Island, 1891-1915",
+        "authors": [
+          "Henry William Gibson"
+        ],
+        "publisher": "Palala Press",
+        "publishedDate": "2016-05-24",
+        "description": "This work has been selected by scholars as being culturally important, and is part of the knowledge base of civilization as we know it. This work was reproduced from the original artifact, and remains as true to the original work as possible. Therefore, you will see the original copyright references, library stamps (as most of these works have been housed in our most important libraries around the world), and other notations in the work. This work is in the public domain in the United States of America, and possibly other nations. Within the United States, you may freely copy and distribute this work, as no entity (individual or corporate) has a copyright on the body of the work. As a reproduction of a historical artifact, this work may contain missing or blurred pages, poor pictures, errant marks, etc. Scholars believe, and we concur, that this work is important enough to be preserved, reproduced, and made generally available to the public. We appreciate your support of the preservation process, and thank you for being an important part of keeping this knowledge alive and relevant.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "1359043624"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9781359043627"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=3P4TvgAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=3P4TvgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=3P4TvgAACAAJ&dq=inauthor:william+gibson+langRestrict:en&hl=&cd=16&source=gbs_api",
+        "infoLink": "http://books.google.com/books?id=3P4TvgAACAAJ&dq=inauthor:william+gibson+langRestrict:en&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Twenty_Five_Years_of_Organized_Boys_Work.html?hl=&id=3P4TvgAACAAJ"
+      },
+      "saleInfo": {
+        "country": "US",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "US",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=3P4TvgAACAAJ&hl=&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "This work has been selected by scholars as being culturally important, and is part of the knowledge base of civilization as we know it."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "Ln4OAQAAMAAJ",
+      "etag": "et8aDPeO4m0",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/Ln4OAQAAMAAJ",
+      "volumeInfo": {
+        "title": "Progress of a Race, Or, The Remarkable Advancement of the American Negro from the Bondage of Slavery, Ignorance and Poverty to the Freedom of Citizenship, Intelligence, Affluence, Honor and Trust",
+        "authors": [
+          "John William Gibson",
+          "William Henry Crogman"
+        ],
+        "publishedDate": "1902",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "WISC:89069506210"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 776,
+        "printType": "BOOK",
+        "categories": [
+          "African Americans"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.6.1.0.preview.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=Ln4OAQAAMAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=Ln4OAQAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=Ln4OAQAAMAAJ&q=inauthor:william+gibson+langRestrict:en&dq=inauthor:william+gibson+langRestrict:en&hl=&cd=17&source=gbs_api",
+        "infoLink": "http://books.google.com/books?id=Ln4OAQAAMAAJ&dq=inauthor:william+gibson+langRestrict:en&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Progress_of_a_Race_Or_The_Remarkable_Adv.html?hl=&id=Ln4OAQAAMAAJ"
+      },
+      "saleInfo": {
+        "country": "US",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "US",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=Ln4OAQAAMAAJ&hl=&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "bF68PQAACAAJ",
+      "etag": "fLCeK/EnPPk",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/bF68PQAACAAJ",
+      "volumeInfo": {
+        "title": "The Distancers",
+        "authors": [
+          "William Gibson"
+        ],
+        "publishedDate": "1986-04",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "0877956898"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9780877956891"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=bF68PQAACAAJ&dq=inauthor:william+gibson+langRestrict:en&hl=&cd=18&source=gbs_api",
+        "infoLink": "http://books.google.com/books?id=bF68PQAACAAJ&dq=inauthor:william+gibson+langRestrict:en&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/The_Distancers.html?hl=&id=bF68PQAACAAJ"
+      },
+      "saleInfo": {
+        "country": "US",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "US",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=bF68PQAACAAJ&hl=&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "ZV96AAAAMAAJ",
+      "etag": "+HtGjUM7Mmw",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/ZV96AAAAMAAJ",
+      "volumeInfo": {
+        "title": "Iberian Colonies, New World Societies",
+        "subtitle": "Essays in Memory of Charles Gibson",
+        "authors": [
+          "Richard L. Garner"
+        ],
+        "publishedDate": "1985",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "UOM:39015017687081"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 244,
+        "printType": "BOOK",
+        "categories": [
+          "Indians of Mexico"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.7.2.0.preview.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=ZV96AAAAMAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=ZV96AAAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=ZV96AAAAMAAJ&q=inauthor:william+gibson+langRestrict:en&dq=inauthor:william+gibson+langRestrict:en&hl=&cd=19&source=gbs_api",
+        "infoLink": "http://books.google.com/books?id=ZV96AAAAMAAJ&dq=inauthor:william+gibson+langRestrict:en&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Iberian_Colonies_New_World_Societies.html?hl=&id=ZV96AAAAMAAJ"
+      },
+      "saleInfo": {
+        "country": "US",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "US",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=ZV96AAAAMAAJ&hl=&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "rJICAAAAQAAJ",
+      "etag": "vb3eZ25RTp0",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/rJICAAAAQAAJ",
+      "volumeInfo": {
+        "title": "Lectures and essays on various subjects, historical, topographical, and artistic",
+        "authors": [
+          "William Sidney Gibson"
+        ],
+        "publishedDate": "1858",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "OXFORD:600083008"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 326,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.8.11.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=rJICAAAAQAAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=rJICAAAAQAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=rJICAAAAQAAJ&printsec=frontcover&dq=inauthor:william+gibson+langRestrict:en&hl=&cd=20&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=rJICAAAAQAAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=rJICAAAAQAAJ"
+      },
+      "saleInfo": {
+        "country": "US",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=rJICAAAAQAAJ&rdid=book-rJICAAAAQAAJ&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "US",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.com/books/download/Lectures_and_essays_on_various_subjects.epub?id=rJICAAAAQAAJ&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "downloadLink": "http://books.google.com/books/download/Lectures_and_essays_on_various_subjects.pdf?id=rJICAAAAQAAJ&hl=&output=pdf&sig=ACfU3U0LxPNN91Ub1zLRf8Y3DKNjmUsxjw&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=rJICAAAAQAAJ&hl=&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "Ac09AAAAcAAJ",
+      "etag": "UTyHrQOndDE",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/Ac09AAAAcAAJ",
+      "volumeInfo": {
+        "title": "Remarks on the mediaeval writers of English history",
+        "authors": [
+          "William S. Gibson"
+        ],
+        "publishedDate": "1848",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "BSB:BSB10279895"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 58,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.3.5.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=Ac09AAAAcAAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=Ac09AAAAcAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=Ac09AAAAcAAJ&printsec=frontcover&dq=inauthor:william+gibson+langRestrict:en&hl=&cd=21&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=Ac09AAAAcAAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=Ac09AAAAcAAJ"
+      },
+      "saleInfo": {
+        "country": "US",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=Ac09AAAAcAAJ&rdid=book-Ac09AAAAcAAJ&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "US",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.com/books/download/Remarks_on_the_mediaeval_writers_of_Engl.epub?id=Ac09AAAAcAAJ&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "downloadLink": "http://books.google.com/books/download/Remarks_on_the_mediaeval_writers_of_Engl.pdf?id=Ac09AAAAcAAJ&hl=&output=pdf&sig=ACfU3U0ZeMQy55tKnAV-btthyJQiWpOhgA&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=Ac09AAAAcAAJ&hl=&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "Gg-y0AEACAAJ",
+      "etag": "jUGbpT3fEy4",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/Gg-y0AEACAAJ",
+      "volumeInfo": {
+        "title": "Letter from France concerning the 100th anniversary of the death of l'Abbé Grégoire, signed Mac Giolla Bríde",
+        "authors": [
+          "William Gibson"
+        ],
+        "publishedDate": "1931",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "OCLC:1429164786"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 0,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "language": "ga",
+        "previewLink": "http://books.google.com/books?id=Gg-y0AEACAAJ&dq=inauthor:william+gibson+langRestrict:en&hl=&cd=22&source=gbs_api",
+        "infoLink": "http://books.google.com/books?id=Gg-y0AEACAAJ&dq=inauthor:william+gibson+langRestrict:en&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Letter_from_France_concerning_the_100th.html?hl=&id=Gg-y0AEACAAJ"
+      },
+      "saleInfo": {
+        "country": "US",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "US",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=Gg-y0AEACAAJ&hl=&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "PJmEAAAAIAAJ",
+      "etag": "9XamuEpheBQ",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/PJmEAAAAIAAJ",
+      "volumeInfo": {
+        "title": "Highways and Byways, Or, Saunterings in New England",
+        "authors": [
+          "William Hamilton Gibson"
+        ],
+        "publishedDate": "1903",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "UCAL:B4503908"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 170,
+        "printType": "BOOK",
+        "categories": [
+          "Natural history"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "3.8.6.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=PJmEAAAAIAAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=PJmEAAAAIAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=PJmEAAAAIAAJ&printsec=frontcover&dq=inauthor:william+gibson+langRestrict:en&hl=&cd=23&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=PJmEAAAAIAAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=PJmEAAAAIAAJ"
+      },
+      "saleInfo": {
+        "country": "US",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=PJmEAAAAIAAJ&rdid=book-PJmEAAAAIAAJ&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "US",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.com/books/download/Highways_and_Byways_Or_Saunterings_in_Ne.epub?id=PJmEAAAAIAAJ&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "downloadLink": "http://books.google.com/books/download/Highways_and_Byways_Or_Saunterings_in_Ne.pdf?id=PJmEAAAAIAAJ&hl=&output=pdf&sig=ACfU3U1UNhsqw7mWZTkkBhwGyqhOttTsDQ&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=PJmEAAAAIAAJ&hl=&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "-K16AAAAIAAJ",
+      "etag": "4tFq1vAtZBE",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/-K16AAAAIAAJ",
+      "volumeInfo": {
+        "title": "Reminiscences of Dollar, Tillicoultry, and Other Districts Adjoining the Ochils",
+        "subtitle": "With Notes on Progress, Scientific Discovery, and Invention of New Spinning Machinery ...",
+        "authors": [
+          "William Gibson (of Tillicoultry.)"
+        ],
+        "publishedDate": "1883",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "STANFORD:36105126436653"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 290,
+        "printType": "BOOK",
+        "categories": [
+          "Dollar (Scotland)"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.3.8.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=-K16AAAAIAAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=-K16AAAAIAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=-K16AAAAIAAJ&printsec=frontcover&dq=inauthor:william+gibson+langRestrict:en&hl=&cd=24&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=-K16AAAAIAAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=-K16AAAAIAAJ"
+      },
+      "saleInfo": {
+        "country": "US",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=-K16AAAAIAAJ&rdid=book--K16AAAAIAAJ&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "US",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.com/books/download/Reminiscences_of_Dollar_Tillicoultry_and.epub?id=-K16AAAAIAAJ&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "downloadLink": "http://books.google.com/books/download/Reminiscences_of_Dollar_Tillicoultry_and.pdf?id=-K16AAAAIAAJ&hl=&output=pdf&sig=ACfU3U2wWmlACYyE0nbaB7JIosFRz58vwA&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=-K16AAAAIAAJ&hl=&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "1UM4DQEACAAJ",
+      "etag": "liNh1l1SPAo",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/1UM4DQEACAAJ",
+      "volumeInfo": {
+        "title": "A Memoir of Lord Lyndhurst",
+        "authors": [
+          "William Sidney Gibson"
+        ],
+        "publisher": "Palala Press",
+        "publishedDate": "2016-05-17",
+        "description": "This work has been selected by scholars as being culturally important, and is part of the knowledge base of civilization as we know it. This work was reproduced from the original artifact, and remains as true to the original work as possible. Therefore, you will see the original copyright references, library stamps (as most of these works have been housed in our most important libraries around the world), and other notations in the work.This work is in the public domain in the United States of America, and possibly other nations. Within the United States, you may freely copy and distribute this work, as no entity (individual or corporate) has a copyright on the body of the work.As a reproduction of a historical artifact, this work may contain missing or blurred pages, poor pictures, errant marks, etc. Scholars believe, and we concur, that this work is important enough to be preserved, reproduced, and made generally available to the public. We appreciate your support of the preservation process, and thank you for being an important part of keeping this knowledge alive and relevant.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "1357000774"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9781357000776"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 74,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=1UM4DQEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=1UM4DQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=1UM4DQEACAAJ&dq=inauthor:william+gibson+langRestrict:en&hl=&cd=25&source=gbs_api",
+        "infoLink": "http://books.google.com/books?id=1UM4DQEACAAJ&dq=inauthor:william+gibson+langRestrict:en&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/A_Memoir_of_Lord_Lyndhurst.html?hl=&id=1UM4DQEACAAJ"
+      },
+      "saleInfo": {
+        "country": "US",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "US",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=1UM4DQEACAAJ&hl=&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "This work has been selected by scholars as being culturally important, and is part of the knowledge base of civilization as we know it."
+      }
+    }
+  ]
+}
