@@ -3,7 +3,6 @@ package routes
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"net/http"
 
 	client "example.com/book-learn/clients"
@@ -66,30 +65,38 @@ func BooksRouter(r chi.Router, api client.BookClientInterface) {
 func queryByAuthor(bookClient client.BookClientInterface) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		// Parse the request body
-		var br BooksRequest
-		err := json.NewDecoder(r.Body).Decode(&br)
+		var bookReq BooksRequest
+		err := json.NewDecoder(r.Body).Decode(&bookReq)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
 		}
 
 		// Fetch data from external API
-		books, err := bookClient.ByAuthor(context.Background(), br.Author, 25)
+		books, err := bookClient.ByAuthor(context.Background(), bookReq.Author, 25)
 		if err != nil {
-			fmt.Printf("error fetching book data from external api: %s", err.Error())
+			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
 
-		// Format as JSON
-		var resp AuthorResponse
-		resp.Author = br.Author
+		// No results
+		if len(books.Items) == 0 {
+			w.WriteHeader(http.StatusNoContent)
+		}
+
+		// Format response
+		var bookResp AuthorResponse
+		bookResp.Author = bookReq.Author
 		for _, book := range books.Items {
 			var br BookResponse
 			br.fromVolumeInfo(book.VolumeInfo)
-			resp.Books = append(resp.Books, br)
+			bookResp.Books = append(bookResp.Books, br)
 		}
-		jsonData, err := json.Marshal(resp)
-		fmt.Fprint(w, string(jsonData))
+
+		// write de jaysawn
+		if err := json.NewEncoder(w).Encode(bookResp); err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+		}
 	}
 }
 
@@ -106,11 +113,16 @@ func queryByTitle(bookClient client.BookClientInterface) http.HandlerFunc {
 		// Fetch data from external API
 		books, err := bookClient.ByTitle(context.Background(), br.Title, 1)
 		if err != nil {
-			fmt.Printf("error fetching book data from external api: %s", err.Error())
+			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
 
-		// Format as JSON
+		// No results
+		if len(books.Items) == 0 {
+			w.WriteHeader(http.StatusNoContent)
+		}
+
+		// Format Response
 		var resp TitleResponse
 		resp.Title = br.Title
 		for _, book := range books.Items {
@@ -118,7 +130,10 @@ func queryByTitle(bookClient client.BookClientInterface) http.HandlerFunc {
 			br.fromVolumeInfo(book.VolumeInfo)
 			resp.Books = append(resp.Books, br)
 		}
-		jsonData, err := json.Marshal(resp)
-		fmt.Fprint(w, string(jsonData))
+
+		// Gift the findings to our user, but this is an internal api so gift to me
+		if err := json.NewEncoder(w).Encode(resp); err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+		}
 	}
 }
