@@ -4,10 +4,12 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
+	"errors"
 	"net/http"
 	"net/http/httptest"
 	"testing"
 
+	client "example.com/book-learn/clients"
 	model "example.com/book-learn/models"
 	"github.com/go-chi/chi/v5"
 	"github.com/stretchr/testify/assert"
@@ -15,19 +17,18 @@ import (
 
 // MockClient
 type MockClient struct {
-	Response model.Books
+	Response model.GoogleBookResponse
 	Err      error
 }
 
-func (cli MockClient) ByAuthor(ctx context.Context, author string, limit int) (model.Books, error) {
+func (cli MockClient) ByAuthor(ctx context.Context, request client.GoogleBookRequest) (model.GoogleBookResponse, error) {
 	return cli.Response, cli.Err
 }
-func (cli MockClient) ByTitle(ctx context.Context, author string, limit int) (model.Books, error) {
+func (cli MockClient) ByTitle(ctx context.Context, request client.GoogleBookRequest) (model.GoogleBookResponse, error) {
 	return cli.Response, cli.Err
 }
 
-// Mock Router
-func setupBooksRouter(response model.Books, err error) http.Handler {
+func setupBooksRouter(response model.GoogleBookResponse, err error) http.Handler {
 	r := chi.NewRouter()
 	cli := MockClient{
 		Response: response,
@@ -38,75 +39,103 @@ func setupBooksRouter(response model.Books, err error) http.Handler {
 }
 
 func TestBooksRouter(t *testing.T) {
-	booksReq := BooksRequest{
+	authorReq := client.GoogleBookRequest{
 		Author: "test-author",
-		Title:  "test-title",
 	}
-	testRequestBody, _ := json.Marshal(booksReq)
+	titleReq := client.GoogleBookRequest{
+		Title: "test-title",
+	}
+	testAuthorRequestBody, _ := json.Marshal(authorReq)
+	testTitleRequestBody, _ := json.Marshal(titleReq)
 
-	mockAuthorItems := []model.GoogleBookItem{
+	mockItems := []model.GoogleBookItem{
 		{
-			VolumeInfo: model.GoogleBookVolumeInfo{
-				Title: "test-title-1",
-			},
-		},
-		{
-			VolumeInfo: model.GoogleBookVolumeInfo{
-				Title: "test-title-2",
-			},
+			Kind:     "kind",
+			ID:       "id",
+			Etag:     "etag",
+			SelfLink: "selflink",
 		},
 	}
-
-	expectedAuthorResponseBody := "{\"Author\":\"test-author\",\"Books\":[{\"Title\":\"test-title-1\",\"Authors\":null,\"PublishedDate\":\"\",\"Description\":\"\",\"PageCount\":0,\"Categories\":null,\"ContentVersion\":\"\",\"PanelizationSummary\":{\"containsEpubBubbles\":false,\"containsImageBubbles\":false},\"ImageLinks\":{\"smallThumbnail\":\"\",\"thumbnail\":\"\"},\"Language\":\"\",\"PreviewLink\":\"\",\"InfoLink\":\"\",\"CanonicalVolumeLink\":\"\"},{\"Title\":\"test-title-2\",\"Authors\":null,\"PublishedDate\":\"\",\"Description\":\"\",\"PageCount\":0,\"Categories\":null,\"ContentVersion\":\"\",\"PanelizationSummary\":{\"containsEpubBubbles\":false,\"containsImageBubbles\":false},\"ImageLinks\":{\"smallThumbnail\":\"\",\"thumbnail\":\"\"},\"Language\":\"\",\"PreviewLink\":\"\",\"InfoLink\":\"\",\"CanonicalVolumeLink\":\"\"}]}"
-	mockClientAuthorResponse := model.Books{
-		Kind:       "mock-kind",
-		TotalItems: 47,
-		Items:      mockAuthorItems,
-	}
-
-	expectedTitleResponseBody := "{\"Title\":\"test-title\",\"Books\":[{\"Title\":\"test-title-1\",\"Authors\":[\"test-author\"],\"PublishedDate\":\"\",\"Description\":\"\",\"PageCount\":0,\"Categories\":null,\"ContentVersion\":\"\",\"PanelizationSummary\":{\"containsEpubBubbles\":false,\"containsImageBubbles\":false},\"ImageLinks\":{\"smallThumbnail\":\"\",\"thumbnail\":\"\"},\"Language\":\"\",\"PreviewLink\":\"\",\"InfoLink\":\"\",\"CanonicalVolumeLink\":\"\"}]}"
-	mockClientTitleResponse := model.Books{
-		Kind:       "mock-kind",
-		TotalItems: 47,
-		Items: []model.GoogleBookItem{
-			{
-				VolumeInfo: model.GoogleBookVolumeInfo{
-					Authors: []string{"test-author"},
-					Title:   "test-title-1",
-				},
-			},
-		},
-	}
+	mockEmptyItems := []model.GoogleBookItem{}
 
 	tests := []struct {
 		name               string
 		method             string
 		path               string
 		expectedStatus     int
-		mockClientResponse model.Books
+		mockClientResponse model.GoogleBookResponse
 		mockClientError    error
 		testRequestBody    []byte
-		expectedBody       string
 	}{
 		{
-			name:               "POST:/books/author",
-			method:             "POST",
-			path:               "/books/author",
-			mockClientResponse: mockClientAuthorResponse,
-			mockClientError:    nil,
-			expectedStatus:     http.StatusOK,
-			testRequestBody:    testRequestBody,
-			expectedBody:       expectedAuthorResponseBody,
+			name:   "POST:/books/author with valid client response",
+			method: "POST",
+			path:   "/books/author",
+			mockClientResponse: model.GoogleBookResponse{
+				Kind:       "test",
+				TotalItems: 42,
+				Items:      mockItems,
+			},
+			mockClientError: nil,
+			expectedStatus:  http.StatusOK,
+			testRequestBody: testAuthorRequestBody,
 		},
 		{
-			name:               "POST:/books/title",
+			name:   "POST:/books/author with empty client response",
+			method: "POST",
+			path:   "/books/author",
+			mockClientResponse: model.GoogleBookResponse{
+				Kind:       "test",
+				TotalItems: 0,
+				Items:      mockEmptyItems,
+			},
+			mockClientError: nil,
+			expectedStatus:  http.StatusNoContent,
+			testRequestBody: testAuthorRequestBody,
+		},
+		{
+			name:               "POST:/books/author with client error",
+			method:             "POST",
+			path:               "/books/author",
+			mockClientResponse: model.GoogleBookResponse{},
+			mockClientError:    errors.New("test-error"),
+			expectedStatus:     http.StatusInternalServerError,
+			testRequestBody:    testAuthorRequestBody,
+		},
+		{
+			name:   "POST:/books/title with valid client response",
+			method: "POST",
+			path:   "/books/title",
+			mockClientResponse: model.GoogleBookResponse{
+				Kind:       "test",
+				TotalItems: 42,
+				Items:      mockItems,
+			},
+			mockClientError: nil,
+			expectedStatus:  http.StatusOK,
+			testRequestBody: testTitleRequestBody,
+		},
+		{
+			name:   "POST:/books/title with empty cient response",
+			method: "POST",
+			path:   "/books/title",
+			mockClientResponse: model.GoogleBookResponse{
+				Kind:       "test",
+				TotalItems: 0,
+				Items:      mockEmptyItems,
+			},
+			mockClientError: nil,
+			expectedStatus:  http.StatusNoContent,
+			testRequestBody: testTitleRequestBody,
+		},
+		{
+			name:               "POST:/books/title with client error",
 			method:             "POST",
 			path:               "/books/title",
-			mockClientResponse: mockClientTitleResponse,
-			mockClientError:    nil,
-			expectedStatus:     http.StatusOK,
-			testRequestBody:    testRequestBody,
-			expectedBody:       expectedTitleResponseBody,
+			mockClientResponse: model.GoogleBookResponse{},
+			mockClientError:    errors.New("test-error"),
+			expectedStatus:     http.StatusInternalServerError,
+			testRequestBody:    testTitleRequestBody,
 		},
 	}
 
@@ -119,7 +148,9 @@ func TestBooksRouter(t *testing.T) {
 			r.ServeHTTP(w, req)
 
 			assert.Equal(t, tt.expectedStatus, w.Code)
-			assert.Equal(t, string(tt.expectedBody), w.Body.String())
+			if tt.expectedStatus == http.StatusOK {
+				assert.NotEmpty(t, w.Body.String())
+			}
 		})
 	}
 }

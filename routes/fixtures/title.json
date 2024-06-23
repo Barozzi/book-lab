@@ -1,0 +1,31 @@
+{
+  "Title": "test-title",
+  "TotalItems": 2,
+  "Books": [
+    {
+      "Title": "Count Zero",
+      "Authors": [
+        "William Gibson"
+      ],
+      "PublishedDate": "1994",
+      "Description": "",
+      "PageCount": 307,
+      "Categories": [
+        "Cyberpunk fiction"
+      ],
+      "ContentVersion": "preview-1.0.0",
+      "PanelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "ImageLinks": {
+        "smallThumbnail": "",
+        "thumbnail": ""
+      },
+      "Language": "sv",
+      "PreviewLink": "http://books.google.com/books?id=atw7PgAACAAJ\u0026dq=intitle:count+zero+langRestrict:en\u0026hl=\u0026cd=1\u0026source=gbs_api",
+      "InfoLink": "http://books.google.com/books?id=atw7PgAACAAJ\u0026dq=intitle:count+zero+langRestrict:en\u0026hl=\u0026source=gbs_api",
+      "CanonicalVolumeLink": "https://books.google.com/books/about/Count_Zero.html?hl=\u0026id=atw7PgAACAAJ"
+    }
+  ]
+}

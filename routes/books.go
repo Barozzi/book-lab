@@ -3,6 +3,7 @@ package routes
 import (
 	"context"
 	"encoding/json"
+	"log/slog"
 	"net/http"
 
 	client "example.com/book-learn/clients"
@@ -10,19 +11,16 @@ import (
 	"github.com/go-chi/chi/v5"
 )
 
-type BooksRequest struct {
-	Author string `json:"author"`
-	Title  string `json:"title"`
-}
-
 type AuthorResponse struct {
-	Author string
-	Books  []BookResponse
+	Author     string
+	TotalItems int
+	Books      []BookResponse
 }
 
 type TitleResponse struct {
-	Title string
-	Books []BookResponse
+	Title      string
+	TotalItems int
+	Books      []BookResponse
 }
 
 type BookResponse struct {
@@ -65,28 +63,32 @@ func BooksRouter(r chi.Router, api client.BookClientInterface) {
 func queryByAuthor(bookClient client.BookClientInterface) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		// Parse the request body
-		var bookReq BooksRequest
+		var bookReq client.GoogleBookRequest
 		err := json.NewDecoder(r.Body).Decode(&bookReq)
 		if err != nil {
-			http.Error(w, err.Error(), http.StatusBadRequest)
+			slog.Error(err.Error())
+			http.Error(w, "", http.StatusBadRequest)
 			return
 		}
 
 		// Fetch data from external API
-		books, err := bookClient.ByAuthor(context.Background(), bookReq.Author, 25)
+		books, err := bookClient.ByAuthor(context.Background(), bookReq)
 		if err != nil {
-			http.Error(w, err.Error(), http.StatusInternalServerError)
+			slog.Error(err.Error())
+			http.Error(w, "", http.StatusInternalServerError)
 			return
 		}
 
 		// No results
 		if len(books.Items) == 0 {
 			w.WriteHeader(http.StatusNoContent)
+			return
 		}
 
 		// Format response
 		var bookResp AuthorResponse
 		bookResp.Author = bookReq.Author
+		bookResp.TotalItems = books.TotalItems
 		for _, book := range books.Items {
 			var br BookResponse
 			br.fromVolumeInfo(book.VolumeInfo)
@@ -94,8 +96,11 @@ func queryByAuthor(bookClient client.BookClientInterface) http.HandlerFunc {
 		}
 
 		// write de jaysawn
-		if err := json.NewEncoder(w).Encode(bookResp); err != nil {
-			http.Error(w, err.Error(), http.StatusInternalServerError)
+		encoder := json.NewEncoder(w)
+		encoder.SetIndent("", "  ")
+		if err := encoder.Encode(bookResp); err != nil {
+			slog.Error(err.Error())
+			http.Error(w, "", http.StatusInternalServerError)
 		}
 	}
 }
@@ -103,28 +108,32 @@ func queryByAuthor(bookClient client.BookClientInterface) http.HandlerFunc {
 func queryByTitle(bookClient client.BookClientInterface) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		// Parse the request body
-		var br BooksRequest
-		err := json.NewDecoder(r.Body).Decode(&br)
+		var bookReq client.GoogleBookRequest
+		err := json.NewDecoder(r.Body).Decode(&bookReq)
 		if err != nil {
-			http.Error(w, err.Error(), http.StatusBadRequest)
+			slog.Error(err.Error())
+			http.Error(w, "", http.StatusBadRequest)
 			return
 		}
 
 		// Fetch data from external API
-		books, err := bookClient.ByTitle(context.Background(), br.Title, 1)
+		books, err := bookClient.ByTitle(context.Background(), bookReq)
 		if err != nil {
-			http.Error(w, err.Error(), http.StatusInternalServerError)
+			slog.Error(err.Error())
+			http.Error(w, "", http.StatusInternalServerError)
 			return
 		}
 
 		// No results
 		if len(books.Items) == 0 {
 			w.WriteHeader(http.StatusNoContent)
+			return
 		}
 
 		// Format Response
 		var resp TitleResponse
-		resp.Title = br.Title
+		resp.Title = bookReq.Title
+		resp.TotalItems = books.TotalItems
 		for _, book := range books.Items {
 			var br BookResponse
 			br.fromVolumeInfo(book.VolumeInfo)
@@ -132,8 +141,11 @@ func queryByTitle(bookClient client.BookClientInterface) http.HandlerFunc {
 		}
 
 		// Gift the findings to our user, but this is an internal api so gift to me
-		if err := json.NewEncoder(w).Encode(resp); err != nil {
-			http.Error(w, err.Error(), http.StatusInternalServerError)
+		encoder := json.NewEncoder(w)
+		encoder.SetIndent("", "  ")
+		if err := encoder.Encode(resp); err != nil {
+			slog.Error(err.Error())
+			http.Error(w, "", http.StatusInternalServerError)
 		}
 	}
 }

@@ -1,0 +1,610 @@
+{
+  "Author": "test-author",
+  "TotalItems": 34,
+  "Books": [
+    {
+      "Title": "Letters to My Son",
+      "Authors": [
+        "William Gibson"
+      ],
+      "PublishedDate": "1917",
+      "Description": "",
+      "PageCount": 256,
+      "Categories": [
+        "Engineers"
+      ],
+      "ContentVersion": "1.3.4.0.full.1",
+      "PanelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "ImageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=IYUQLS0SnpEC\u0026printsec=frontcover\u0026img=1\u0026zoom=5\u0026edge=curl\u0026source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=IYUQLS0SnpEC\u0026printsec=frontcover\u0026img=1\u0026zoom=1\u0026edge=curl\u0026source=gbs_api"
+      },
+      "Language": "en",
+      "PreviewLink": "http://books.google.com/books?id=IYUQLS0SnpEC\u0026printsec=frontcover\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026cd=1\u0026source=gbs_api",
+      "InfoLink": "https://play.google.com/store/books/details?id=IYUQLS0SnpEC\u0026source=gbs_api",
+      "CanonicalVolumeLink": "https://play.google.com/store/books/details?id=IYUQLS0SnpEC"
+    },
+    {
+      "Title": "Reminiscences",
+      "Authors": [
+        "George Gibson"
+      ],
+      "PublishedDate": "2004",
+      "Description": "",
+      "PageCount": 92,
+      "Categories": [
+        "Biography \u0026 Autobiography"
+      ],
+      "ContentVersion": "1.4.1.0.preview.0",
+      "PanelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "ImageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=moUrAQAAIAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=5\u0026source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=moUrAQAAIAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=1\u0026source=gbs_api"
+      },
+      "Language": "en",
+      "PreviewLink": "http://books.google.com/books?id=moUrAQAAIAAJ\u0026q=inauthor:william+gibson+langRestrict:en\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026cd=2\u0026source=gbs_api",
+      "InfoLink": "http://books.google.com/books?id=moUrAQAAIAAJ\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026source=gbs_api",
+      "CanonicalVolumeLink": "https://books.google.com/books/about/Reminiscences.html?hl=\u0026id=moUrAQAAIAAJ"
+    },
+    {
+      "Title": "Notes on how to Turn a Phoenix Into Ashes",
+      "Authors": [
+        "William Gibson"
+      ],
+      "PublishedDate": "1978",
+      "Description": "",
+      "PageCount": 168,
+      "Categories": [
+        "Biography \u0026 Autobiography"
+      ],
+      "ContentVersion": "2.8.2.0.preview.0",
+      "PanelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "ImageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=JZ4nAAAAMAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=5\u0026source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=JZ4nAAAAMAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=1\u0026source=gbs_api"
+      },
+      "Language": "en",
+      "PreviewLink": "http://books.google.com/books?id=JZ4nAAAAMAAJ\u0026q=inauthor:william+gibson+langRestrict:en\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026cd=3\u0026source=gbs_api",
+      "InfoLink": "http://books.google.com/books?id=JZ4nAAAAMAAJ\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026source=gbs_api",
+      "CanonicalVolumeLink": "https://books.google.com/books/about/Notes_on_how_to_Turn_a_Phoenix_Into_Ashe.html?hl=\u0026id=JZ4nAAAAMAAJ"
+    },
+    {
+      "Title": "Distrust that Particular Flavor",
+      "Authors": [
+        "William Gibson"
+      ],
+      "PublishedDate": "2012",
+      "Description": "A collection of nonfiction writings includes essays discussing the Singapore trial of a drug trafficker, what's wrong with the Internet, and and how music documents modern culture.",
+      "PageCount": 0,
+      "Categories": [
+        "Canadian essays"
+      ],
+      "ContentVersion": "preview-1.0.0",
+      "PanelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "ImageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=QemCZwEACAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=5\u0026source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=QemCZwEACAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=1\u0026source=gbs_api"
+      },
+      "Language": "en",
+      "PreviewLink": "http://books.google.com/books?id=QemCZwEACAAJ\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026cd=4\u0026source=gbs_api",
+      "InfoLink": "http://books.google.com/books?id=QemCZwEACAAJ\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026source=gbs_api",
+      "CanonicalVolumeLink": "https://books.google.com/books/about/Distrust_that_Particular_Flavor.html?hl=\u0026id=QemCZwEACAAJ"
+    },
+    {
+      "Title": "Good Counsel and Advice unto the magistrates and people of Norwich: with a brief relation ... of the sufferings of the Quakers in the said City. [By W. Gibson and others.]",
+      "Authors": [
+        "William GIBSON (Quaker, of London.)"
+      ],
+      "PublishedDate": "1676",
+      "Description": "",
+      "PageCount": 20,
+      "Categories": null,
+      "ContentVersion": "0.4.4.0.full.1",
+      "PanelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "ImageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=q3lmAAAAcAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=5\u0026edge=curl\u0026source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=q3lmAAAAcAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=1\u0026edge=curl\u0026source=gbs_api"
+      },
+      "Language": "en",
+      "PreviewLink": "http://books.google.com/books?id=q3lmAAAAcAAJ\u0026printsec=frontcover\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026cd=5\u0026source=gbs_api",
+      "InfoLink": "https://play.google.com/store/books/details?id=q3lmAAAAcAAJ\u0026source=gbs_api",
+      "CanonicalVolumeLink": "https://play.google.com/store/books/details?id=q3lmAAAAcAAJ"
+    },
+    {
+      "Title": "Reminiscences of Dollar, Tillicoultry, and Other Districts Adjoining the Ochils",
+      "Authors": [
+        "William Gibson"
+      ],
+      "PublishedDate": "1882",
+      "Description": "",
+      "PageCount": 226,
+      "Categories": [
+        "Clackmannanshire (Scotland)"
+      ],
+      "ContentVersion": "0.8.10.0.full.1",
+      "PanelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "ImageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=klB4TpLGMvAC\u0026printsec=frontcover\u0026img=1\u0026zoom=5\u0026edge=curl\u0026source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=klB4TpLGMvAC\u0026printsec=frontcover\u0026img=1\u0026zoom=1\u0026edge=curl\u0026source=gbs_api"
+      },
+      "Language": "en",
+      "PreviewLink": "http://books.google.com/books?id=klB4TpLGMvAC\u0026printsec=frontcover\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026cd=6\u0026source=gbs_api",
+      "InfoLink": "https://play.google.com/store/books/details?id=klB4TpLGMvAC\u0026source=gbs_api",
+      "CanonicalVolumeLink": "https://play.google.com/store/books/details?id=klB4TpLGMvAC"
+    },
+    {
+      "Title": "Letters to My Son",
+      "Authors": [
+        "William Gibson"
+      ],
+      "PublishedDate": "1917",
+      "Description": "",
+      "PageCount": 0,
+      "Categories": [
+        "United States"
+      ],
+      "ContentVersion": "preview-1.0.0",
+      "PanelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "ImageLinks": {
+        "smallThumbnail": "",
+        "thumbnail": ""
+      },
+      "Language": "en",
+      "PreviewLink": "http://books.google.com/books?id=57MfSwAACAAJ\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026cd=7\u0026source=gbs_api",
+      "InfoLink": "http://books.google.com/books?id=57MfSwAACAAJ\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026source=gbs_api",
+      "CanonicalVolumeLink": "https://books.google.com/books/about/Letters_to_My_Son.html?hl=\u0026id=57MfSwAACAAJ"
+    },
+    {
+      "Title": "Goodly Creatures",
+      "Authors": [
+        "William Gibson"
+      ],
+      "PublishedDate": "1980",
+      "Description": "Typescript (photocopy) of a two act play by William Gibson. Signed by the author.",
+      "PageCount": 200,
+      "Categories": null,
+      "ContentVersion": "preview-1.0.0",
+      "PanelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "ImageLinks": {
+        "smallThumbnail": "",
+        "thumbnail": ""
+      },
+      "Language": "en",
+      "PreviewLink": "http://books.google.com/books?id=LoRduAAACAAJ\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026cd=8\u0026source=gbs_api",
+      "InfoLink": "http://books.google.com/books?id=LoRduAAACAAJ\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026source=gbs_api",
+      "CanonicalVolumeLink": "https://books.google.com/books/about/Goodly_Creatures.html?hl=\u0026id=LoRduAAACAAJ"
+    },
+    {
+      "Title": "Letters to My Son",
+      "Authors": [
+        "William Gibson"
+      ],
+      "PublishedDate": "2017-08-19",
+      "Description": "",
+      "PageCount": 258,
+      "Categories": null,
+      "ContentVersion": "preview-1.0.0",
+      "PanelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "ImageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=wYtVswEACAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=5\u0026source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=wYtVswEACAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=1\u0026source=gbs_api"
+      },
+      "Language": "en",
+      "PreviewLink": "http://books.google.com/books?id=wYtVswEACAAJ\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026cd=9\u0026source=gbs_api",
+      "InfoLink": "http://books.google.com/books?id=wYtVswEACAAJ\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026source=gbs_api",
+      "CanonicalVolumeLink": "https://books.google.com/books/about/Letters_to_My_Son.html?hl=\u0026id=wYtVswEACAAJ"
+    },
+    {
+      "Title": "Boyology - Or Boy Analysis",
+      "Authors": [
+        "Henry William Gibson"
+      ],
+      "PublishedDate": "2011-09-01",
+      "Description": "Many of the earliest books, particularly those dating back to the 1900s and before, are now extremely scarce and increasingly expensive. We are republishing these classic works in affordable, high quality, modern editions, using the original text and artwork.",
+      "PageCount": 302,
+      "Categories": [
+        "History"
+      ],
+      "ContentVersion": "preview-1.0.0",
+      "PanelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "ImageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=hNgmLwEACAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=5\u0026source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=hNgmLwEACAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=1\u0026source=gbs_api"
+      },
+      "Language": "en",
+      "PreviewLink": "http://books.google.com/books?id=hNgmLwEACAAJ\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026cd=10\u0026source=gbs_api",
+      "InfoLink": "http://books.google.com/books?id=hNgmLwEACAAJ\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026source=gbs_api",
+      "CanonicalVolumeLink": "https://books.google.com/books/about/Boyology_Or_Boy_Analysis.html?hl=\u0026id=hNgmLwEACAAJ"
+    },
+    {
+      "Title": "Two for the Seesaw",
+      "Authors": [
+        "William Gibson"
+      ],
+      "PublishedDate": "",
+      "Description": "",
+      "PageCount": 199,
+      "Categories": null,
+      "ContentVersion": "preview-1.0.0",
+      "PanelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "ImageLinks": {
+        "smallThumbnail": "",
+        "thumbnail": ""
+      },
+      "Language": "en",
+      "PreviewLink": "http://books.google.com/books?id=P1VRswEACAAJ\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026cd=11\u0026source=gbs_api",
+      "InfoLink": "http://books.google.com/books?id=P1VRswEACAAJ\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026source=gbs_api",
+      "CanonicalVolumeLink": "https://books.google.com/books/about/Two_for_the_Seesaw.html?hl=\u0026id=P1VRswEACAAJ"
+    },
+    {
+      "Title": "William D. Howells",
+      "Authors": [
+        "William M. Gibson"
+      ],
+      "PublishedDate": "1967",
+      "Description": "Minnesota Archive Editions uses digital technology to make long-unavailable books once again accessible to scholars, students, researchers, and general readers. Rich with historical and cultural value, these works are published unaltered from the original University of Minnesota Press editions. The books offered through Minnesota Archive Editions are produced in limited quantities according to customer demand and are available through select distribution partners.",
+      "PageCount": 50,
+      "Categories": [
+        "Biography \u0026 Autobiography"
+      ],
+      "ContentVersion": "0.6.3.0.preview.3",
+      "PanelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "ImageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=VJvQDSqL3f8C\u0026printsec=frontcover\u0026img=1\u0026zoom=5\u0026edge=curl\u0026source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=VJvQDSqL3f8C\u0026printsec=frontcover\u0026img=1\u0026zoom=1\u0026edge=curl\u0026source=gbs_api"
+      },
+      "Language": "en",
+      "PreviewLink": "http://books.google.com/books?id=VJvQDSqL3f8C\u0026printsec=frontcover\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026cd=12\u0026source=gbs_api",
+      "InfoLink": "https://play.google.com/store/books/details?id=VJvQDSqL3f8C\u0026source=gbs_api",
+      "CanonicalVolumeLink": "https://play.google.com/store/books/details?id=VJvQDSqL3f8C"
+    },
+    {
+      "Title": "BOYOLOGY OR BOY ANALYSIS",
+      "Authors": [
+        "Henry William 1867 Gibson"
+      ],
+      "PublishedDate": "2016-08-25",
+      "Description": "This work has been selected by scholars as being culturally important, and is part of the knowledge base of civilization as we know it. This work was reproduced from the original artifact, and remains as true to the original work as possible. Therefore, you will see the original copyright references, library stamps (as most of these works have been housed in our most important libraries around the world), and other notations in the work. This work is in the public domain in the United States of America, and possibly other nations. Within the United States, you may freely copy and distribute this work, as no entity (individual or corporate) has a copyright on the body of the work. As a reproduction of a historical artifact, this work may contain missing or blurred pages, poor pictures, errant marks, etc. Scholars believe, and we concur, that this work is important enough to be preserved, reproduced, and made generally available to the public. We appreciate your support of the preservation process, and thank you for being an important part of keeping this knowledge alive and relevant.",
+      "PageCount": 310,
+      "Categories": [
+        "History"
+      ],
+      "ContentVersion": "preview-1.0.0",
+      "PanelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "ImageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=8j5RvgAACAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=5\u0026source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=8j5RvgAACAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=1\u0026source=gbs_api"
+      },
+      "Language": "en",
+      "PreviewLink": "http://books.google.com/books?id=8j5RvgAACAAJ\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026cd=13\u0026source=gbs_api",
+      "InfoLink": "http://books.google.com/books?id=8j5RvgAACAAJ\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026source=gbs_api",
+      "CanonicalVolumeLink": "https://books.google.com/books/about/BOYOLOGY_OR_BOY_ANALYSIS.html?hl=\u0026id=8j5RvgAACAAJ"
+    },
+    {
+      "Title": "Paris During the Commune",
+      "Authors": [
+        "William Gibson"
+      ],
+      "PublishedDate": "1895",
+      "Description": "",
+      "PageCount": 0,
+      "Categories": [
+        "France"
+      ],
+      "ContentVersion": "preview-1.0.0",
+      "PanelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "ImageLinks": {
+        "smallThumbnail": "",
+        "thumbnail": ""
+      },
+      "Language": "en",
+      "PreviewLink": "http://books.google.com/books?id=M5NozwEACAAJ\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026cd=14\u0026source=gbs_api",
+      "InfoLink": "http://books.google.com/books?id=M5NozwEACAAJ\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026source=gbs_api",
+      "CanonicalVolumeLink": "https://books.google.com/books/about/Paris_During_the_Commune.html?hl=\u0026id=M5NozwEACAAJ"
+    },
+    {
+      "Title": "The Year of Grace; A History of the Ulster Revival of 1859",
+      "Authors": [
+        "William Gibson, Dr"
+      ],
+      "PublishedDate": "2016-05-24",
+      "Description": "This work has been selected by scholars as being culturally important, and is part of the knowledge base of civilization as we know it. This work was reproduced from the original artifact, and remains as true to the original work as possible. Therefore, you will see the original copyright references, library stamps (as most of these works have been housed in our most important libraries around the world), and other notations in the work. This work is in the public domain in the United States of America, and possibly other nations. Within the United States, you may freely copy and distribute this work, as no entity (individual or corporate) has a copyright on the body of the work. As a reproduction of a historical artifact, this work may contain missing or blurred pages, poor pictures, errant marks, etc. Scholars believe, and we concur, that this work is important enough to be preserved, reproduced, and made generally available to the public. We appreciate your support of the preservation process, and thank you for being an important part of keeping this knowledge alive and relevant.",
+      "PageCount": 0,
+      "Categories": null,
+      "ContentVersion": "preview-1.0.0",
+      "PanelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "ImageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=ypRWvgAACAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=5\u0026source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=ypRWvgAACAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=1\u0026source=gbs_api"
+      },
+      "Language": "en",
+      "PreviewLink": "http://books.google.com/books?id=ypRWvgAACAAJ\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026cd=15\u0026source=gbs_api",
+      "InfoLink": "http://books.google.com/books?id=ypRWvgAACAAJ\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026source=gbs_api",
+      "CanonicalVolumeLink": "https://books.google.com/books/about/The_Year_of_Grace_A_History_of_the_Ulste.html?hl=\u0026id=ypRWvgAACAAJ"
+    },
+    {
+      "Title": "Twenty-Five Years of Organized Boys Work in Massachusetts and Rhode Island, 1891-1915",
+      "Authors": [
+        "Henry William Gibson"
+      ],
+      "PublishedDate": "2016-05-24",
+      "Description": "This work has been selected by scholars as being culturally important, and is part of the knowledge base of civilization as we know it. This work was reproduced from the original artifact, and remains as true to the original work as possible. Therefore, you will see the original copyright references, library stamps (as most of these works have been housed in our most important libraries around the world), and other notations in the work. This work is in the public domain in the United States of America, and possibly other nations. Within the United States, you may freely copy and distribute this work, as no entity (individual or corporate) has a copyright on the body of the work. As a reproduction of a historical artifact, this work may contain missing or blurred pages, poor pictures, errant marks, etc. Scholars believe, and we concur, that this work is important enough to be preserved, reproduced, and made generally available to the public. We appreciate your support of the preservation process, and thank you for being an important part of keeping this knowledge alive and relevant.",
+      "PageCount": 0,
+      "Categories": null,
+      "ContentVersion": "preview-1.0.0",
+      "PanelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "ImageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=3P4TvgAACAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=5\u0026source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=3P4TvgAACAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=1\u0026source=gbs_api"
+      },
+      "Language": "en",
+      "PreviewLink": "http://books.google.com/books?id=3P4TvgAACAAJ\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026cd=16\u0026source=gbs_api",
+      "InfoLink": "http://books.google.com/books?id=3P4TvgAACAAJ\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026source=gbs_api",
+      "CanonicalVolumeLink": "https://books.google.com/books/about/Twenty_Five_Years_of_Organized_Boys_Work.html?hl=\u0026id=3P4TvgAACAAJ"
+    },
+    {
+      "Title": "Progress of a Race, Or, The Remarkable Advancement of the American Negro from the Bondage of Slavery, Ignorance and Poverty to the Freedom of Citizenship, Intelligence, Affluence, Honor and Trust",
+      "Authors": [
+        "John William Gibson",
+        "William Henry Crogman"
+      ],
+      "PublishedDate": "1902",
+      "Description": "",
+      "PageCount": 776,
+      "Categories": [
+        "African Americans"
+      ],
+      "ContentVersion": "0.6.1.0.preview.0",
+      "PanelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "ImageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=Ln4OAQAAMAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=5\u0026source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=Ln4OAQAAMAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=1\u0026source=gbs_api"
+      },
+      "Language": "en",
+      "PreviewLink": "http://books.google.com/books?id=Ln4OAQAAMAAJ\u0026q=inauthor:william+gibson+langRestrict:en\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026cd=17\u0026source=gbs_api",
+      "InfoLink": "http://books.google.com/books?id=Ln4OAQAAMAAJ\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026source=gbs_api",
+      "CanonicalVolumeLink": "https://books.google.com/books/about/Progress_of_a_Race_Or_The_Remarkable_Adv.html?hl=\u0026id=Ln4OAQAAMAAJ"
+    },
+    {
+      "Title": "The Distancers",
+      "Authors": [
+        "William Gibson"
+      ],
+      "PublishedDate": "1986-04",
+      "Description": "",
+      "PageCount": 0,
+      "Categories": null,
+      "ContentVersion": "preview-1.0.0",
+      "PanelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "ImageLinks": {
+        "smallThumbnail": "",
+        "thumbnail": ""
+      },
+      "Language": "en",
+      "PreviewLink": "http://books.google.com/books?id=bF68PQAACAAJ\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026cd=18\u0026source=gbs_api",
+      "InfoLink": "http://books.google.com/books?id=bF68PQAACAAJ\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026source=gbs_api",
+      "CanonicalVolumeLink": "https://books.google.com/books/about/The_Distancers.html?hl=\u0026id=bF68PQAACAAJ"
+    },
+    {
+      "Title": "Iberian Colonies, New World Societies",
+      "Authors": [
+        "Richard L. Garner"
+      ],
+      "PublishedDate": "1985",
+      "Description": "",
+      "PageCount": 244,
+      "Categories": [
+        "Indians of Mexico"
+      ],
+      "ContentVersion": "0.7.2.0.preview.0",
+      "PanelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "ImageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=ZV96AAAAMAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=5\u0026source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=ZV96AAAAMAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=1\u0026source=gbs_api"
+      },
+      "Language": "en",
+      "PreviewLink": "http://books.google.com/books?id=ZV96AAAAMAAJ\u0026q=inauthor:william+gibson+langRestrict:en\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026cd=19\u0026source=gbs_api",
+      "InfoLink": "http://books.google.com/books?id=ZV96AAAAMAAJ\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026source=gbs_api",
+      "CanonicalVolumeLink": "https://books.google.com/books/about/Iberian_Colonies_New_World_Societies.html?hl=\u0026id=ZV96AAAAMAAJ"
+    },
+    {
+      "Title": "Lectures and essays on various subjects, historical, topographical, and artistic",
+      "Authors": [
+        "William Sidney Gibson"
+      ],
+      "PublishedDate": "1858",
+      "Description": "",
+      "PageCount": 326,
+      "Categories": null,
+      "ContentVersion": "0.8.11.0.full.1",
+      "PanelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "ImageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=rJICAAAAQAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=5\u0026edge=curl\u0026source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=rJICAAAAQAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=1\u0026edge=curl\u0026source=gbs_api"
+      },
+      "Language": "en",
+      "PreviewLink": "http://books.google.com/books?id=rJICAAAAQAAJ\u0026printsec=frontcover\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026cd=20\u0026source=gbs_api",
+      "InfoLink": "https://play.google.com/store/books/details?id=rJICAAAAQAAJ\u0026source=gbs_api",
+      "CanonicalVolumeLink": "https://play.google.com/store/books/details?id=rJICAAAAQAAJ"
+    },
+    {
+      "Title": "Remarks on the mediaeval writers of English history",
+      "Authors": [
+        "William S. Gibson"
+      ],
+      "PublishedDate": "1848",
+      "Description": "",
+      "PageCount": 58,
+      "Categories": null,
+      "ContentVersion": "0.3.5.0.full.1",
+      "PanelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "ImageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=Ac09AAAAcAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=5\u0026edge=curl\u0026source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=Ac09AAAAcAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=1\u0026edge=curl\u0026source=gbs_api"
+      },
+      "Language": "en",
+      "PreviewLink": "http://books.google.com/books?id=Ac09AAAAcAAJ\u0026printsec=frontcover\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026cd=21\u0026source=gbs_api",
+      "InfoLink": "https://play.google.com/store/books/details?id=Ac09AAAAcAAJ\u0026source=gbs_api",
+      "CanonicalVolumeLink": "https://play.google.com/store/books/details?id=Ac09AAAAcAAJ"
+    },
+    {
+      "Title": "Letter from France concerning the 100th anniversary of the death of l'Abbé Grégoire, signed Mac Giolla Bríde",
+      "Authors": [
+        "William Gibson"
+      ],
+      "PublishedDate": "1931",
+      "Description": "",
+      "PageCount": 0,
+      "Categories": null,
+      "ContentVersion": "preview-1.0.0",
+      "PanelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "ImageLinks": {
+        "smallThumbnail": "",
+        "thumbnail": ""
+      },
+      "Language": "ga",
+      "PreviewLink": "http://books.google.com/books?id=Gg-y0AEACAAJ\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026cd=22\u0026source=gbs_api",
+      "InfoLink": "http://books.google.com/books?id=Gg-y0AEACAAJ\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026source=gbs_api",
+      "CanonicalVolumeLink": "https://books.google.com/books/about/Letter_from_France_concerning_the_100th.html?hl=\u0026id=Gg-y0AEACAAJ"
+    },
+    {
+      "Title": "Highways and Byways, Or, Saunterings in New England",
+      "Authors": [
+        "William Hamilton Gibson"
+      ],
+      "PublishedDate": "1903",
+      "Description": "",
+      "PageCount": 170,
+      "Categories": [
+        "Natural history"
+      ],
+      "ContentVersion": "3.8.6.0.full.1",
+      "PanelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "ImageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=PJmEAAAAIAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=5\u0026edge=curl\u0026source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=PJmEAAAAIAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=1\u0026edge=curl\u0026source=gbs_api"
+      },
+      "Language": "en",
+      "PreviewLink": "http://books.google.com/books?id=PJmEAAAAIAAJ\u0026printsec=frontcover\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026cd=23\u0026source=gbs_api",
+      "InfoLink": "https://play.google.com/store/books/details?id=PJmEAAAAIAAJ\u0026source=gbs_api",
+      "CanonicalVolumeLink": "https://play.google.com/store/books/details?id=PJmEAAAAIAAJ"
+    },
+    {
+      "Title": "Reminiscences of Dollar, Tillicoultry, and Other Districts Adjoining the Ochils",
+      "Authors": [
+        "William Gibson (of Tillicoultry.)"
+      ],
+      "PublishedDate": "1883",
+      "Description": "",
+      "PageCount": 290,
+      "Categories": [
+        "Dollar (Scotland)"
+      ],
+      "ContentVersion": "0.3.8.0.full.1",
+      "PanelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "ImageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=-K16AAAAIAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=5\u0026edge=curl\u0026source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=-K16AAAAIAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=1\u0026edge=curl\u0026source=gbs_api"
+      },
+      "Language": "en",
+      "PreviewLink": "http://books.google.com/books?id=-K16AAAAIAAJ\u0026printsec=frontcover\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026cd=24\u0026source=gbs_api",
+      "InfoLink": "https://play.google.com/store/books/details?id=-K16AAAAIAAJ\u0026source=gbs_api",
+      "CanonicalVolumeLink": "https://play.google.com/store/books/details?id=-K16AAAAIAAJ"
+    },
+    {
+      "Title": "A Memoir of Lord Lyndhurst",
+      "Authors": [
+        "William Sidney Gibson"
+      ],
+      "PublishedDate": "2016-05-17",
+      "Description": "This work has been selected by scholars as being culturally important, and is part of the knowledge base of civilization as we know it. This work was reproduced from the original artifact, and remains as true to the original work as possible. Therefore, you will see the original copyright references, library stamps (as most of these works have been housed in our most important libraries around the world), and other notations in the work.This work is in the public domain in the United States of America, and possibly other nations. Within the United States, you may freely copy and distribute this work, as no entity (individual or corporate) has a copyright on the body of the work.As a reproduction of a historical artifact, this work may contain missing or blurred pages, poor pictures, errant marks, etc. Scholars believe, and we concur, that this work is important enough to be preserved, reproduced, and made generally available to the public. We appreciate your support of the preservation process, and thank you for being an important part of keeping this knowledge alive and relevant.",
+      "PageCount": 74,
+      "Categories": null,
+      "ContentVersion": "preview-1.0.0",
+      "PanelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "ImageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=1UM4DQEACAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=5\u0026source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=1UM4DQEACAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=1\u0026source=gbs_api"
+      },
+      "Language": "en",
+      "PreviewLink": "http://books.google.com/books?id=1UM4DQEACAAJ\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026cd=25\u0026source=gbs_api",
+      "InfoLink": "http://books.google.com/books?id=1UM4DQEACAAJ\u0026dq=inauthor:william+gibson+langRestrict:en\u0026hl=\u0026source=gbs_api",
+      "CanonicalVolumeLink": "https://books.google.com/books/about/A_Memoir_of_Lord_Lyndhurst.html?hl=\u0026id=1UM4DQEACAAJ"
+    }
+  ]
+}

@@ -8,9 +8,10 @@ import (
 	"net/http"
 	"net/url"
 	"os"
-	"strings"
+	"path/filepath"
+	"runtime"
 
-	"example.com/book-learn/models"
+	model "example.com/book-learn/models"
 )
 
 // Common Query Parameters:
@@ -28,41 +29,59 @@ import (
 // startIndex: Index of the first result to return (for pagination).
 // orderBy: Specifies how the results should be sorted (values: relevance, newest).
 
+type GoogleBookRequest struct {
+	Title  string
+	Author string
+	Start  int
+	Limit  int
+}
 type BookClientInterface interface {
-	ByAuthor(ctx context.Context, author string, limit int) (model.GoogleBookResponse, error)
-	ByTitle(ctx context.Context, title string, limit int) (model.GoogleBookResponse, error)
+	ByAuthor(ctx context.Context, request GoogleBookRequest) (model.GoogleBookResponse, error)
+	ByTitle(ctx context.Context, request GoogleBookRequest) (model.GoogleBookResponse, error)
 }
 
 type GoogleBookClient struct {
 	PactMode bool
 }
 
-func (bc GoogleBookClient) ByAuthor(ctx context.Context, author string, limit int) (model.GoogleBookResponse, error) {
-	query := fmt.Sprintf("inauthor:%s", url.QueryEscape(author))
+func (bc GoogleBookClient) ByAuthor(ctx context.Context, request GoogleBookRequest) (model.GoogleBookResponse, error) {
 	if bc.PactMode == true {
 		fmt.Println("serving pact")
 		return authorPact()
 	} else {
-		return booksRequest(ctx, query, limit)
+		query := fmt.Sprintf("inauthor:%s+langRestrict:en", url.QueryEscape(request.Author))
+		return bookRequest(ctx, query, request)
 	}
 }
 
-func (bc GoogleBookClient) ByTitle(ctx context.Context, title string, limit int) (model.GoogleBookResponse, error) {
-	query := fmt.Sprintf("intitle:%s", url.QueryEscape(title))
+func (bc GoogleBookClient) ByTitle(ctx context.Context, request GoogleBookRequest) (model.GoogleBookResponse, error) {
 	if bc.PactMode == true {
 		fmt.Println("serving pact")
 		return titlePact()
 	} else {
-		return booksRequest(ctx, query, limit)
+		query := fmt.Sprintf("intitle:%s+langRestrict:en", url.QueryEscape(request.Title))
+		return bookRequest(ctx, query, request)
 	}
 }
 
-func booksRequest(ctx context.Context, query string, limit int) (model.GoogleBookResponse, error) {
-	url := "https://www.googleapis.com/books/v1/volumes?q=%s+langRestrict:en&maxResults=%d"
+func bookRequest(ctx context.Context, query string, request GoogleBookRequest) (model.GoogleBookResponse, error) {
+	type requestPart struct {
+		querystring string
+		valid       bool
+	}
+	queryParts := []requestPart{
+		{querystring: fmt.Sprintf("&startIndex=%s", url.QueryEscape(fmt.Sprint(request.Start))), valid: request.Start > 0},
+		{querystring: fmt.Sprintf("&maxResults=%s", url.QueryEscape(fmt.Sprint(request.Limit))), valid: request.Limit > 0},
+	}
 
-	fullurl := fmt.Sprintf(url, strings.ReplaceAll(query, " ", "+"), limit)
-	fmt.Println(fullurl)
-	res, err := http.Get(fullurl)
+	fullUrl := fmt.Sprintf("https://www.googleapis.com/books/v1/volumes?q=%s", query)
+	for _, part := range queryParts {
+		if part.valid == true {
+			fullUrl = fmt.Sprintf("%s%s", fullUrl, part.querystring)
+		}
+	}
+	fmt.Println(fullUrl)
+	res, err := http.Get(fullUrl)
 	if err != nil {
 		return model.GoogleBookResponse{}, err
 	}
@@ -78,7 +97,12 @@ func booksRequest(ctx context.Context, query string, limit int) (model.GoogleBoo
 }
 
 func authorPact() (model.GoogleBookResponse, error) {
-	pact, err := os.ReadFile("./clients/pacts/google-author-response.json")
+	var (
+		_, b, _, _ = runtime.Caller(0)
+		basepath   = filepath.Dir(b)
+	)
+	fpath := filepath.Join(basepath, "/pacts/google-author-response.json")
+	pact, err := os.ReadFile(fpath)
 	if err != nil {
 		return model.GoogleBookResponse{}, err
 	}
@@ -91,16 +115,19 @@ func authorPact() (model.GoogleBookResponse, error) {
 }
 
 func titlePact() (model.GoogleBookResponse, error) {
-	pact, err := os.ReadFile("./clients/pacts/google-title-response.json")
+	var (
+		_, b, _, _ = runtime.Caller(0)
+		basepath   = filepath.Dir(b)
+	)
+	fpath := filepath.Join(basepath, "/pacts/google-title-response.json")
+	pact, err := os.ReadFile(fpath)
 	if err != nil {
 		return model.GoogleBookResponse{}, err
 	}
-	fmt.Println(string(pact)) // TODO DEBUG
 	var books model.GoogleBookResponse
 	err = json.Unmarshal(pact, &books)
 	if err != nil {
 		return model.GoogleBookResponse{}, err
 	}
-	fmt.Println(books) // TODO DEBUG
 	return books, nil
 }
