@@ -13,6 +13,7 @@ import (
 func main() {
 	r := chi.NewRouter()
 	bookClient := client.GoogleBookClient{
+		GetData:  http.Get,
 		PactMode: os.Getenv("PACT_MODE") == "true",
 	}
 

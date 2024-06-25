@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"log/slog"
 	"net/http"
 	"net/url"
 	"os"
@@ -41,30 +42,31 @@ type BookClientInterface interface {
 }
 
 type GoogleBookClient struct {
+	GetData  func(url string) (resp *http.Response, err error)
 	PactMode bool
 }
 
 func (bc GoogleBookClient) ByAuthor(ctx context.Context, request GoogleBookRequest) (model.GoogleBookResponse, error) {
 	if bc.PactMode == true {
-		fmt.Println("serving pact")
+		slog.Info("serving pact")
 		return authorPact()
 	} else {
 		query := fmt.Sprintf("inauthor:%s+langRestrict:en", url.QueryEscape(request.Author))
-		return bookRequest(ctx, query, request)
+		return bc.bookRequest(ctx, query, request)
 	}
 }
 
 func (bc GoogleBookClient) ByTitle(ctx context.Context, request GoogleBookRequest) (model.GoogleBookResponse, error) {
 	if bc.PactMode == true {
-		fmt.Println("serving pact")
+		slog.Info("serving pact")
 		return titlePact()
 	} else {
 		query := fmt.Sprintf("intitle:%s+langRestrict:en", url.QueryEscape(request.Title))
-		return bookRequest(ctx, query, request)
+		return bc.bookRequest(ctx, query, request)
 	}
 }
 
-func bookRequest(ctx context.Context, query string, request GoogleBookRequest) (model.GoogleBookResponse, error) {
+func (bc GoogleBookClient) bookRequest(ctx context.Context, query string, request GoogleBookRequest) (model.GoogleBookResponse, error) {
 	type requestPart struct {
 		querystring string
 		valid       bool
@@ -80,8 +82,8 @@ func bookRequest(ctx context.Context, query string, request GoogleBookRequest) (
 			fullUrl = fmt.Sprintf("%s%s", fullUrl, part.querystring)
 		}
 	}
-	fmt.Println(fullUrl)
-	res, err := http.Get(fullUrl)
+	slog.Info(fullUrl)
+	res, err := bc.GetData(fullUrl)
 	if err != nil {
 		return model.GoogleBookResponse{}, err
 	}
