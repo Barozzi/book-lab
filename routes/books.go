@@ -12,31 +12,31 @@ import (
 )
 
 type AuthorResponse struct {
-	Author     string
-	TotalItems int
-	Books      []BookResponse
+	Author     string         `json:"author"`
+	TotalItems int            `json:"totalItems"`
+	Books      []BookResponse `json:"books"`
 }
 
 type TitleResponse struct {
-	Title      string
-	TotalItems int
-	Books      []BookResponse
+	Title      string         `json:"title"`
+	TotalItems int            `json:"totalItems"`
+	Books      []BookResponse `json:"books"`
 }
 
 type BookResponse struct {
-	Title               string
-	Authors             []string
-	PublishedDate       string
-	Description         string
-	PageCount           int
-	Categories          []string
-	ContentVersion      string
-	PanelizationSummary model.GoogleBookPanelizationSummary
-	ImageLinks          model.GoogleBookImageLinks
-	Language            string
-	PreviewLink         string
-	InfoLink            string
-	CanonicalVolumeLink string
+	Title               string                              `json:"title"`
+	Authors             []string                            `json:"authors"`
+	PublishedDate       string                              `json:"publishedDate"`
+	Description         string                              `json:"description"`
+	PageCount           int                                 `json:"pageCount"`
+	Categories          []string                            `json:"categories"`
+	ContentVersion      string                              `json:"contentVersion"`
+	PanelizationSummary model.GoogleBookPanelizationSummary `json:"panelizationSummary"`
+	ImageLinks          model.GoogleBookImageLinks          `json:"imageLinks"`
+	Language            string                              `json:"language"`
+	PreviewLink         string                              `json:"previewLink"`
+	InfoLink            string                              `json:"infoLink"`
+	CanonicalVolumeLink string                              `json:"canonicalVolumeLink"`
 }
 
 func (br *BookResponse) fromVolumeInfo(vi model.GoogleBookVolumeInfo) {

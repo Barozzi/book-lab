@@ -11,6 +11,7 @@ import (
 	"os"
 	"path/filepath"
 	"runtime"
+	"slices"
 
 	model "example.com/book-learn/models"
 )
@@ -51,8 +52,29 @@ func (bc GoogleBookClient) ByAuthor(ctx context.Context, request GoogleBookReque
 		slog.Info("serving pact")
 		return authorPact()
 	} else {
-		query := fmt.Sprintf("inauthor:%s+langRestrict:en", url.QueryEscape(request.Author))
+		query := fmt.Sprintf("inauthor:\"%s\"", url.QueryEscape(request.Author))
 		return bc.bookRequest(ctx, query, request)
+	}
+}
+
+func filterResults(req GoogleBookRequest) func(model.GoogleBookResponse, error) (model.GoogleBookResponse, error) {
+	return func(resp model.GoogleBookResponse, err error) (model.GoogleBookResponse, error) {
+		if err != nil {
+			return resp, err
+		}
+		var filteredBooks []model.GoogleBookItem
+
+		requestedAuthor := req.Author
+		for i := 0; i < len(resp.Items); i++ {
+			a := resp.Items[i].VolumeInfo.Authors
+			if slices.Contains(a, requestedAuthor) && resp.Items[i].VolumeInfo.PageCount > 100 {
+				filteredBooks = append(filteredBooks, resp.Items[i])
+			}
+		}
+
+		// return filtered results
+		resp.Items = filteredBooks
+		return resp, err
 	}
 }
 
@@ -61,7 +83,7 @@ func (bc GoogleBookClient) ByTitle(ctx context.Context, request GoogleBookReques
 		slog.Info("serving pact")
 		return titlePact()
 	} else {
-		query := fmt.Sprintf("intitle:%s+langRestrict:en", url.QueryEscape(request.Title))
+		query := fmt.Sprintf("intitle:%s", url.QueryEscape(request.Title))
 		return bc.bookRequest(ctx, query, request)
 	}
 }
