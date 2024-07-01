@@ -24,19 +24,29 @@ type TitleResponse struct {
 }
 
 type BookResponse struct {
-	Title               string                              `json:"title"`
-	Authors             []string                            `json:"authors"`
-	PublishedDate       string                              `json:"publishedDate"`
-	Description         string                              `json:"description"`
-	PageCount           int                                 `json:"pageCount"`
-	Categories          []string                            `json:"categories"`
-	ContentVersion      string                              `json:"contentVersion"`
-	PanelizationSummary model.GoogleBookPanelizationSummary `json:"panelizationSummary"`
-	ImageLinks          model.GoogleBookImageLinks          `json:"imageLinks"`
-	Language            string                              `json:"language"`
-	PreviewLink         string                              `json:"previewLink"`
-	InfoLink            string                              `json:"infoLink"`
-	CanonicalVolumeLink string                              `json:"canonicalVolumeLink"`
+	Title               string                  `json:"title"`
+	Authors             []string                `json:"authors"`
+	PublishedDate       string                  `json:"publishedDate"`
+	Description         string                  `json:"description"`
+	PageCount           int                     `json:"pageCount"`
+	Categories          []string                `json:"categories"`
+	ContentVersion      string                  `json:"contentVersion"`
+	PanelizationSummary BookPanelizationSummary `json:"panelizationSummary"`
+	ImageLinks          BookImageLinks          `json:"imageLinks"`
+	Language            string                  `json:"language"`
+	PreviewLink         string                  `json:"previewLink"`
+	InfoLink            string                  `json:"infoLink"`
+	CanonicalVolumeLink string                  `json:"canonicalVolumeLink"`
+}
+
+type BookPanelizationSummary struct {
+	ContainsEpubBubbles  bool `json:"containsEpubBubbles"`
+	ContainsImageBubbles bool `json:"containsImageBubbles"`
+}
+
+type BookImageLinks struct {
+	SmallThumbnail string `json:"smallThumbnail"`
+	Thumbnail      string `json:"thumbnail"`
 }
 
 func (br *BookResponse) fromVolumeInfo(vi model.GoogleBookVolumeInfo) {
