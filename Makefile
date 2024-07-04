@@ -5,6 +5,9 @@ pactmode:
 	PACT_MODE=true go run main.go
 
 test:
+	go test ./...
+
+testv:
 	go test -v ./...
 
 docker:
@@ -13,4 +16,4 @@ docker:
 dockerrun:
 	docker run -it -p 8080:8080 --rm book-lab-api:latest
 
-.PHONY: run pactmode docker dockerrun
+.PHONY: run pactmode docker dockerrun test testv

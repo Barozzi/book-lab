@@ -10,6 +10,7 @@ import (
 	"testing"
 
 	model "example.com/book-learn/models"
+	"github.com/stretchr/testify/assert"
 )
 
 func mockGetData(data []byte, err error) func(string) (*http.Response, error) {
@@ -45,7 +46,7 @@ func TestGoogleBookClient_ByAuthor(t *testing.T) {
 			name: "success",
 			fields: fields{
 				GetData: mockGetData([]byte(
-					"{ \"Kind\": \"test-reponse\", \"TotalItems\": 0, \"Items\": [] }",
+					"{ \"Kind\": \"test-response\", \"TotalItems\": 0, \"Items\": [] }",
 				), nil),
 				PactMode: false,
 			},
@@ -56,7 +57,7 @@ func TestGoogleBookClient_ByAuthor(t *testing.T) {
 				},
 			},
 			want: model.GoogleBookResponse{
-				Kind:       "test-reponse",
+				Kind:       "test-response",
 				TotalItems: 0,
 				Items:      []model.GoogleBookItem{},
 			},
@@ -87,9 +88,9 @@ func TestGoogleBookClient_ByAuthor(t *testing.T) {
 				t.Errorf("GoogleBookClient.ByAuthor() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
-			if !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("GoogleBookClient.ByAuthor() = %v, want %v", got, tt.want)
-			}
+			assert.Equal(t, got.Kind, tt.want.Kind)
+			assert.Equal(t, got.Items, tt.want.Items)
+			assert.Equal(t, got.TotalItems, tt.want.TotalItems)
 		})
 	}
 }
@@ -163,7 +164,7 @@ func TestGoogleBookClient_ByTitle(t *testing.T) {
 	}
 }
 
-func Test_filterExactName(t *testing.T) {
+func Test_filterExactAuthor(t *testing.T) {
 	type args struct {
 		book model.GoogleBookItem
 		name string
@@ -212,7 +213,7 @@ func Test_filterExactName(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := filterExactName(tt.args.book, tt.args.name); got != tt.want {
+			if got := filterExactAuthor(tt.args.book, tt.args.name); got != tt.want {
 				t.Errorf("filterExactName() = %v, want %v", got, tt.want)
 			}
 		})

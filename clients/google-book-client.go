@@ -65,10 +65,10 @@ func filterResults(req GoogleBookRequest) func(model.GoogleBookResponse, error) 
 		if err != nil {
 			return resp, err
 		}
-		var filteredBooks []model.GoogleBookItem
+		filteredBooks := []model.GoogleBookItem{}
 
 		for _, book := range resp.Items {
-			if filterExactAuthor(book, req.Author) && filterNonEnglish(book) && filterNoDescription(book) && filterNoImage(book) {
+			if filterExactAuthor(book, req.Author) && filterIsEnglish(book) && filterHasDescription(book) && filterHasImage(book) {
 				filteredBooks = append(filteredBooks, book)
 			}
 		}
@@ -83,15 +83,15 @@ func filterExactAuthor(book model.GoogleBookItem, name string) bool {
 	return slices.Contains(book.VolumeInfo.Authors, name)
 }
 
-func filterNonEnglish(book model.GoogleBookItem) bool {
+func filterIsEnglish(book model.GoogleBookItem) bool {
 	return book.VolumeInfo.Language == "en"
 }
 
-func filterNoDescription(book model.GoogleBookItem) bool {
+func filterHasDescription(book model.GoogleBookItem) bool {
 	return len(book.VolumeInfo.Description) > 1
 }
 
-func filterNoImage(book model.GoogleBookItem) bool {
+func filterHasImage(book model.GoogleBookItem) bool {
 	return len(book.VolumeInfo.ImageLinks.Thumbnail) > 10
 }
 
@@ -123,6 +123,26 @@ func (bc GoogleBookClient) ByTitle(ctx context.Context, request GoogleBookReques
 }
 
 func (bc GoogleBookClient) bookRequest(ctx context.Context, query string, request GoogleBookRequest) (model.GoogleBookResponse, error) {
+	fullUrl := buildRequestUrl(query, request)
+	slog.Info(fullUrl)
+
+	// Make Request to Google Book API
+	res, err := bc.GetData(fullUrl)
+	if err != nil {
+		return model.GoogleBookResponse{}, err
+	}
+	defer res.Body.Close()
+
+	body, err := io.ReadAll(res.Body)
+	if err != nil {
+		return model.GoogleBookResponse{}, err
+	}
+	var books model.GoogleBookResponse
+	json.Unmarshal(body, &books)
+	return books, nil
+}
+
+func buildRequestUrl(query string, request GoogleBookRequest) string {
 	type requestPart struct {
 		querystring string
 		valid       bool
@@ -138,20 +158,7 @@ func (bc GoogleBookClient) bookRequest(ctx context.Context, query string, reques
 			fullUrl = fmt.Sprintf("%s%s", fullUrl, part.querystring)
 		}
 	}
-	slog.Info(fullUrl)
-	res, err := bc.GetData(fullUrl)
-	if err != nil {
-		return model.GoogleBookResponse{}, err
-	}
-	defer res.Body.Close()
-
-	body, err := io.ReadAll(res.Body)
-	if err != nil {
-		return model.GoogleBookResponse{}, err
-	}
-	var books model.GoogleBookResponse
-	json.Unmarshal(body, &books)
-	return books, nil
+	return fullUrl
 }
 
 func authorPact() (model.GoogleBookResponse, error) {
