@@ -162,3 +162,59 @@ func TestGoogleBookClient_ByTitle(t *testing.T) {
 		})
 	}
 }
+
+func Test_filterExactName(t *testing.T) {
+	type args struct {
+		book model.GoogleBookItem
+		name string
+	}
+	tests := []struct {
+		name string
+		args args
+		want bool
+	}{
+		{
+			name: "with one element that matches",
+			args: args{
+				book: model.GoogleBookItem{
+					VolumeInfo: model.GoogleBookVolumeInfo{
+						Authors: []string{"Testy Testerson"},
+					},
+				},
+				name: "Testy Testerson",
+			},
+			want: true,
+		},
+		{
+			name: "with one element that does not match",
+			args: args{
+				book: model.GoogleBookItem{
+					VolumeInfo: model.GoogleBookVolumeInfo{
+						Authors: []string{"Testy Testerson"},
+					},
+				},
+				name: "Not Testy Testerson",
+			},
+			want: false,
+		},
+		{
+			name: "with two elements and one match",
+			args: args{
+				book: model.GoogleBookItem{
+					VolumeInfo: model.GoogleBookVolumeInfo{
+						Authors: []string{"Testy Testerson", "Besty Besterson"},
+					},
+				},
+				name: "Testy Testerson",
+			},
+			want: true,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := filterExactName(tt.args.book, tt.args.name); got != tt.want {
+				t.Errorf("filterExactName() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}

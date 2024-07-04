@@ -57,8 +57,14 @@ func (br *BookResponse) fromVolumeInfo(vi model.GoogleBookVolumeInfo) {
 	br.PageCount = vi.PageCount
 	br.Categories = vi.Categories
 	br.ContentVersion = vi.ContentVersion
-	br.PanelizationSummary = vi.PanelizationSummary
-	br.ImageLinks = vi.ImageLinks
+	br.PanelizationSummary = BookPanelizationSummary{
+		ContainsEpubBubbles:  vi.PanelizationSummary.ContainsEpubBubbles,
+		ContainsImageBubbles: vi.PanelizationSummary.ContainsImageBubbles,
+	}
+	br.ImageLinks = BookImageLinks{
+		SmallThumbnail: vi.ImageLinks.SmallThumbnail,
+		Thumbnail:      vi.ImageLinks.Thumbnail,
+	}
 	br.Language = vi.Language
 	br.PreviewLink = vi.PreviewLink
 	br.InfoLink = vi.InfoLink

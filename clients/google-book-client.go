@@ -1,6 +1,7 @@
 package client
 
 import (
+	"cmp"
 	"context"
 	"encoding/json"
 	"fmt"
@@ -53,7 +54,9 @@ func (bc GoogleBookClient) ByAuthor(ctx context.Context, request GoogleBookReque
 		return authorPact()
 	} else {
 		query := fmt.Sprintf("inauthor:\"%s\"", url.QueryEscape(request.Author))
-		return bc.bookRequest(ctx, query, request)
+		return sortByPublishedDate(
+			filterResults(request)(
+				bc.bookRequest(ctx, query, request)))
 	}
 }
 
@@ -64,11 +67,9 @@ func filterResults(req GoogleBookRequest) func(model.GoogleBookResponse, error) 
 		}
 		var filteredBooks []model.GoogleBookItem
 
-		requestedAuthor := req.Author
-		for i := 0; i < len(resp.Items); i++ {
-			a := resp.Items[i].VolumeInfo.Authors
-			if slices.Contains(a, requestedAuthor) && resp.Items[i].VolumeInfo.PageCount > 100 {
-				filteredBooks = append(filteredBooks, resp.Items[i])
+		for _, book := range resp.Items {
+			if filterExactAuthor(book, req.Author) && filterNonEnglish(book) && filterNoDescription(book) && filterNoImage(book) {
+				filteredBooks = append(filteredBooks, book)
 			}
 		}
 
@@ -76,6 +77,39 @@ func filterResults(req GoogleBookRequest) func(model.GoogleBookResponse, error) 
 		resp.Items = filteredBooks
 		return resp, err
 	}
+}
+
+func filterExactAuthor(book model.GoogleBookItem, name string) bool {
+	return slices.Contains(book.VolumeInfo.Authors, name)
+}
+
+func filterNonEnglish(book model.GoogleBookItem) bool {
+	return book.VolumeInfo.Language == "en"
+}
+
+func filterNoDescription(book model.GoogleBookItem) bool {
+	return len(book.VolumeInfo.Description) > 1
+}
+
+func filterNoImage(book model.GoogleBookItem) bool {
+	return len(book.VolumeInfo.ImageLinks.Thumbnail) > 10
+}
+
+func dedupe(resp model.GoogleBookResponse, err error) (model.GoogleBookResponse, error) {
+	if err != nil {
+		return resp, err
+	}
+	return resp, err
+}
+
+func sortByPublishedDate(resp model.GoogleBookResponse, err error) (model.GoogleBookResponse, error) {
+	if err != nil {
+		return resp, err
+	}
+	slices.SortFunc(resp.Items, func(a, b model.GoogleBookItem) int {
+		return cmp.Compare(b.VolumeInfo.PublishedDate, a.VolumeInfo.PublishedDate)
+	})
+	return resp, err
 }
 
 func (bc GoogleBookClient) ByTitle(ctx context.Context, request GoogleBookRequest) (model.GoogleBookResponse, error) {
