@@ -37,6 +37,7 @@ type GoogleBookRequest struct {
 	Author string
 	Start  int
 	Limit  int
+	Pages  int
 }
 type BookClientInterface interface {
 	ByAuthor(ctx context.Context, request GoogleBookRequest) (model.GoogleBookResponse, error)

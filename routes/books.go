@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"log/slog"
 	"net/http"
+	"sync"
 
 	client "example.com/book-learn/clients"
 	model "example.com/book-learn/models"
@@ -87,25 +88,61 @@ func queryByAuthor(bookClient client.BookClientInterface) http.HandlerFunc {
 			return
 		}
 
-		// Fetch data from external API
-		books, err := bookClient.ByAuthor(context.Background(), bookReq)
-		if err != nil {
-			slog.Error(err.Error())
-			http.Error(w, "", http.StatusInternalServerError)
-			return
+		results := make(chan model.GoogleBookResponse, bookReq.Pages+1)
+		var wg sync.WaitGroup
+
+		fetch := func(start int) {
+			defer wg.Done()
+			// Fetch data from external API
+			req := client.GoogleBookRequest{
+				Title:  bookReq.Title,
+				Author: bookReq.Author,
+				Start:  start,
+				Limit:  bookReq.Limit,
+				Pages:  0,
+			}
+			books, err := bookClient.ByAuthor(context.Background(), req)
+			if err != nil {
+				slog.Error(err.Error())
+				http.Error(w, "", http.StatusInternalServerError)
+				return
+			}
+
+			results <- books
+		}
+		wg.Add(1)
+		go fetch(bookReq.Start)
+
+		for i := 0; i <= bookReq.Pages; i++ {
+			wg.Add(1)
+			go fetch(bookReq.Start + i*bookReq.Limit)
+		}
+
+		go func() {
+			wg.Wait()
+			close(results)
+		}()
+
+		var books []model.GoogleBookItem
+		totalItems := 0
+
+		for result := range results {
+			if totalItems == 0 {
+				totalItems = result.TotalItems
+			}
+			books = append(books, result.Items...)
 		}
 
 		// No results
-		if len(books.Items) == 0 {
+		if len(books) == 0 {
 			w.WriteHeader(http.StatusNoContent)
 			return
 		}
-
 		// Format response
 		var bookResp AuthorResponse
 		bookResp.Author = bookReq.Author
-		bookResp.TotalItems = books.TotalItems
-		for _, book := range books.Items {
+		bookResp.TotalItems = totalItems
+		for _, book := range books {
 			var br BookResponse
 			br.fromVolumeInfo(book.VolumeInfo)
 			bookResp.Books = append(bookResp.Books, br)
