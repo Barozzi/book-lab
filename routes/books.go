@@ -4,7 +4,9 @@ import (
 	"context"
 	"encoding/json"
 	"log/slog"
+	"math"
 	"net/http"
+	"strconv"
 	"sync"
 
 	client "example.com/book-learn/clients"
@@ -13,9 +15,10 @@ import (
 )
 
 type AuthorResponse struct {
-	Author     string         `json:"author"`
-	TotalItems int            `json:"totalItems"`
-	Books      []BookResponse `json:"books"`
+	Author       string         `json:"author"`
+	TotalItems   int            `json:"totalItems"`
+	Books        []BookResponse `json:"books"`
+	HasMorePages bool           `json:"hasMorePages"`
 }
 
 type TitleResponse struct {
@@ -87,6 +90,7 @@ func queryByAuthor(bookClient client.BookClientInterface) http.HandlerFunc {
 			http.Error(w, "", http.StatusBadRequest)
 			return
 		}
+		slog.Info("BookRequest:", "Author", bookReq.Author, "Start", strconv.Itoa(bookReq.Start), "limit", strconv.Itoa(bookReq.Limit), "Pages", strconv.Itoa(bookReq.Pages))
 
 		results := make(chan model.GoogleBookResponse, bookReq.Pages+1)
 		var wg sync.WaitGroup
@@ -107,6 +111,7 @@ func queryByAuthor(bookClient client.BookClientInterface) http.HandlerFunc {
 				http.Error(w, "", http.StatusInternalServerError)
 				return
 			}
+			slog.Info(req.Author, "Start", strconv.Itoa(req.Start), "limit", strconv.Itoa(req.Limit), "Pages", strconv.Itoa(req.Pages))
 
 			results <- books
 		}
@@ -142,6 +147,7 @@ func queryByAuthor(bookClient client.BookClientInterface) http.HandlerFunc {
 		var bookResp AuthorResponse
 		bookResp.Author = bookReq.Author
 		bookResp.TotalItems = totalItems
+		bookResp.HasMorePages = int(math.Ceil(float64(totalItems)/float64(bookReq.Limit))-float64(bookReq.Pages)) > 0
 		for _, book := range books {
 			var br BookResponse
 			br.fromVolumeInfo(book.VolumeInfo)

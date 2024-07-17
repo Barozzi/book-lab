@@ -2,9 +2,10 @@ package model
 
 // Books represents the top-level structure of the JSON response.
 type GoogleBookResponse struct {
-	Kind       string           `json:"kind"`
-	TotalItems int              `json:"totalItems"`
-	Items      []GoogleBookItem `json:"items"`
+	Kind         string           `json:"kind"`
+	TotalItems   int              `json:"totalItems"`
+	HasMorePages bool             `json:"hasMorePages"`
+	Items        []GoogleBookItem `json:"items"`
 }
 
 // GoogleBookItem represents individual items in the Items array.

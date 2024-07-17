@@ -11,8 +11,10 @@ import (
 	"net/url"
 	"os"
 	"path/filepath"
+	"regexp"
 	"runtime"
 	"slices"
+	"strings"
 
 	model "example.com/book-learn/models"
 )
@@ -61,6 +63,42 @@ func (bc GoogleBookClient) ByAuthor(ctx context.Context, request GoogleBookReque
 	}
 }
 
+func (bc GoogleBookClient) ByTitle(ctx context.Context, request GoogleBookRequest) (model.GoogleBookResponse, error) {
+	if bc.PactMode == true {
+		slog.Info("serving pact")
+		return titlePact()
+	} else {
+		query := fmt.Sprintf("intitle:%s+inauthor:%s", url.QueryEscape(request.Title), url.QueryEscape(request.Author))
+		return sortByDescLength(
+			filterTitleResults(request)(
+				bc.bookRequest(ctx, query, request)))
+	}
+}
+
+func filterTitleResults(req GoogleBookRequest) func(model.GoogleBookResponse, error) (model.GoogleBookResponse, error) {
+	return func(resp model.GoogleBookResponse, err error) (model.GoogleBookResponse, error) {
+		if err != nil {
+			return resp, err
+		}
+		filteredBooks := []model.GoogleBookItem{}
+		fmt.Printf("filterTitleResults: %s\n", req.Title)
+
+		for _, book := range resp.Items {
+			fmt.Printf("filterTitleResults: exactTitle %s == %s is %t\n", book.VolumeInfo.Title, req.Title, (normalizeString(book.VolumeInfo.Title) == normalizeString(req.Title)))
+			fmt.Printf("filterTitleResults: isEnglish %s == %s is %t\n", book.VolumeInfo.Language, "en", (book.VolumeInfo.Language == "en"))
+			fmt.Printf("filterTitleResults: hasDesc %d > %d is %t\n", len(book.VolumeInfo.Description), 0, (len(book.VolumeInfo.Description) > 0))
+			fmt.Printf("filterTitleResults: hasImage %d > %d is %t\n", len(book.VolumeInfo.ImageLinks.Thumbnail), 0, (len(book.VolumeInfo.ImageLinks.Thumbnail) > 0))
+			if filterExactTitle(book, req.Title) && filterIsEnglish(book) && filterHasDescription(book) {
+				filteredBooks = append(filteredBooks, book)
+			}
+		}
+
+		// return filtered results
+		resp.Items = filteredBooks
+		return resp, err
+	}
+}
+
 func filterResults(req GoogleBookRequest) func(model.GoogleBookResponse, error) (model.GoogleBookResponse, error) {
 	return func(resp model.GoogleBookResponse, err error) (model.GoogleBookResponse, error) {
 		if err != nil {
@@ -78,6 +116,10 @@ func filterResults(req GoogleBookRequest) func(model.GoogleBookResponse, error) 
 		resp.Items = filteredBooks
 		return resp, err
 	}
+}
+
+func filterExactTitle(book model.GoogleBookItem, name string) bool {
+	return normalizeString(book.VolumeInfo.Title) == normalizeString(name)
 }
 
 func filterExactAuthor(book model.GoogleBookItem, name string) bool {
@@ -113,14 +155,14 @@ func sortByPublishedDate(resp model.GoogleBookResponse, err error) (model.Google
 	return resp, err
 }
 
-func (bc GoogleBookClient) ByTitle(ctx context.Context, request GoogleBookRequest) (model.GoogleBookResponse, error) {
-	if bc.PactMode == true {
-		slog.Info("serving pact")
-		return titlePact()
-	} else {
-		query := fmt.Sprintf("intitle:%s", url.QueryEscape(request.Title))
-		return bc.bookRequest(ctx, query, request)
+func sortByDescLength(resp model.GoogleBookResponse, err error) (model.GoogleBookResponse, error) {
+	if err != nil {
+		return resp, err
 	}
+	slices.SortFunc(resp.Items, func(a, b model.GoogleBookItem) int {
+		return cmp.Compare(len(b.VolumeInfo.Description), len(a.VolumeInfo.Description))
+	})
+	return resp, err
 }
 
 func (bc GoogleBookClient) bookRequest(ctx context.Context, query string, request GoogleBookRequest) (model.GoogleBookResponse, error) {
@@ -141,6 +183,12 @@ func (bc GoogleBookClient) bookRequest(ctx context.Context, query string, reques
 	var books model.GoogleBookResponse
 	json.Unmarshal(body, &books)
 	return books, nil
+}
+func normalizeString(s string) string {
+	s = strings.ToLower(s)
+	reg, _ := regexp.Compile("[^a-zA-Z0-9]+")
+	s = reg.ReplaceAllString(s, "")
+	return s
 }
 
 func buildRequestUrl(query string, request GoogleBookRequest) string {
