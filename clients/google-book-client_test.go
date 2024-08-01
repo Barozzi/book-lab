@@ -219,3 +219,77 @@ func Test_filterExactAuthor(t *testing.T) {
 		})
 	}
 }
+
+func Test_buildRequestUrl(t *testing.T) {
+	type args struct {
+		query   string
+		request GoogleBookRequest
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		{
+			name: "with no query string",
+			args: args{
+				query: "",
+				request: GoogleBookRequest{
+					Title: "Test",
+				},
+			},
+			want: "https://www.googleapis.com/books/v1/volumes?q=",
+		},
+		{
+			name: "with a query string",
+			args: args{
+				query: "Testy-Testersons-Novel",
+				request: GoogleBookRequest{
+					Title: "Test",
+				},
+			},
+			want: "https://www.googleapis.com/books/v1/volumes?q=Testy-Testersons-Novel",
+		},
+		{
+			name: "with a start",
+			args: args{
+				query: "Testy-Testersons-Novel",
+				request: GoogleBookRequest{
+					Title: "Test",
+					Start: 42,
+				},
+			},
+			want: "https://www.googleapis.com/books/v1/volumes?q=Testy-Testersons-Novel&startIndex=42",
+		},
+		{
+			name: "with a Limit",
+			args: args{
+				query: "Testy-Testersons-Novel",
+				request: GoogleBookRequest{
+					Title: "Test",
+					Limit: 42,
+				},
+			},
+			want: "https://www.googleapis.com/books/v1/volumes?q=Testy-Testersons-Novel&maxResults=42",
+		},
+		{
+			name: "with a Start and a Limit",
+			args: args{
+				query: "Testy-Testersons-Novel",
+				request: GoogleBookRequest{
+					Title: "Test",
+					Start: 24,
+					Limit: 42,
+				},
+			},
+			want: "https://www.googleapis.com/books/v1/volumes?q=Testy-Testersons-Novel&startIndex=24&maxResults=42",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := buildRequestUrl(tt.args.query, tt.args.request); got != tt.want {
+				t.Errorf("buildRequestUrl() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
