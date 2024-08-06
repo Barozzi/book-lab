@@ -34,6 +34,8 @@ import (
 // startIndex: Index of the first result to return (for pagination).
 // orderBy: Specifies how the results should be sorted (values: relevance, newest).
 
+const DEBUG = false
+
 type GoogleBookRequest struct {
 	Title  string
 	Author string
@@ -64,7 +66,7 @@ func (bc GoogleBookClient) ByAuthor(ctx context.Context, request GoogleBookReque
 }
 
 func (bc GoogleBookClient) ByTitle(ctx context.Context, request GoogleBookRequest) (model.GoogleBookResponse, error) {
-	if bc.PactMode == true {
+	if bc.PactMode {
 		slog.Info("serving pact")
 		return titlePact()
 	} else {
@@ -81,14 +83,15 @@ func filterTitleResults(req GoogleBookRequest) func(model.GoogleBookResponse, er
 			return resp, err
 		}
 		filteredBooks := []model.GoogleBookItem{}
-		fmt.Printf("filterTitleResults: %s\n", req.Title)
 
 		for _, book := range resp.Items {
-			fmt.Printf("filterTitleResults: exactTitle %s == %s is %t\n", book.VolumeInfo.Title, req.Title, (normalizeString(book.VolumeInfo.Title) == normalizeString(req.Title)))
-			fmt.Printf("filterTitleResults: isEnglish %s == %s is %t\n", book.VolumeInfo.Language, "en", (book.VolumeInfo.Language == "en"))
-			fmt.Printf("filterTitleResults: hasDesc %d > %d is %t\n", len(book.VolumeInfo.Description), 0, (len(book.VolumeInfo.Description) > 0))
-			fmt.Printf("filterTitleResults: hasImage %d > %d is %t\n", len(book.VolumeInfo.ImageLinks.Thumbnail), 0, (len(book.VolumeInfo.ImageLinks.Thumbnail) > 0))
-			if filterExactTitle(book, req.Title) && filterIsEnglish(book) && filterHasDescription(book) {
+			if DEBUG {
+				fmt.Printf("filterTitleResults: exactTitle %s == %s is %t\n", book.VolumeInfo.Title, req.Title, (normalizeString(book.VolumeInfo.Title) == normalizeString(req.Title)))
+				fmt.Printf("filterTitleResults: isEnglish %s == %s is %t\n", book.VolumeInfo.Language, "en", (book.VolumeInfo.Language == "en"))
+				fmt.Printf("filterTitleResults: hasDesc %d > %d is %t\n", len(book.VolumeInfo.Description), 0, (len(book.VolumeInfo.Description) > 0))
+				fmt.Printf("filterTitleResults: hasImage %d > %d is %t\n", len(book.VolumeInfo.ImageLinks.Thumbnail), 0, (len(book.VolumeInfo.ImageLinks.Thumbnail) > 0))
+			}
+			if filterExactTitle(book, req.Title) && filterIsEnglish(book) && filterHasDescription(book) && filterHasImage(book) {
 				filteredBooks = append(filteredBooks, book)
 			}
 		}
@@ -136,13 +139,6 @@ func filterHasDescription(book model.GoogleBookItem) bool {
 
 func filterHasImage(book model.GoogleBookItem) bool {
 	return len(book.VolumeInfo.ImageLinks.Thumbnail) > 10
-}
-
-func dedupe(resp model.GoogleBookResponse, err error) (model.GoogleBookResponse, error) {
-	if err != nil {
-		return resp, err
-	}
-	return resp, err
 }
 
 func sortByPublishedDate(resp model.GoogleBookResponse, err error) (model.GoogleBookResponse, error) {
