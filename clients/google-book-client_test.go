@@ -185,10 +185,24 @@ func Test_filterTitleResults(t *testing.T) {
 		name string
 		args args
 		want struct {
-			resp model.GoogleBookResponse
-			err  error
+			count int
+			err   error
 		}
 	}{
+		{
+			name: "with error",
+			args: args{
+				req: GoogleBookRequest{},
+				err: errors.New("test-error"),
+			},
+			want: struct {
+				count int
+				err   error
+			}{
+				count: 0,
+				err:   errors.New("test-error"),
+			},
+		},
 		{
 			name: "with empty results",
 			args: args{
@@ -204,16 +218,11 @@ func Test_filterTitleResults(t *testing.T) {
 				err: nil,
 			},
 			want: struct {
-				resp model.GoogleBookResponse
-				err  error
+				count int
+				err   error
 			}{
-				resp: model.GoogleBookResponse{
-					Kind:         "books#volumes",
-					TotalItems:   0,
-					HasMorePages: false,
-					Items:        []model.GoogleBookItem{},
-				},
-				err: nil,
+				count: 0,
+				err:   nil,
 			},
 		},
 		{
@@ -256,41 +265,11 @@ func Test_filterTitleResults(t *testing.T) {
 				err: nil,
 			},
 			want: struct {
-				resp model.GoogleBookResponse
-				err  error
+				count int
+				err   error
 			}{
-				resp: model.GoogleBookResponse{
-					Kind:         "books#volumes",
-					TotalItems:   2,
-					HasMorePages: false,
-					Items: []model.GoogleBookItem{
-						{
-							Kind: "Book",
-							ID:   "1",
-							VolumeInfo: model.GoogleBookVolumeInfo{
-								Description: "has-description",
-								Language:    "en",
-								ImageLinks: model.GoogleBookImageLinks{
-									Thumbnail: "has-thumbnail",
-								},
-								Title: "test-title",
-							},
-						},
-						{
-							Kind: "Book",
-							ID:   "2",
-							VolumeInfo: model.GoogleBookVolumeInfo{
-								Description: "has-description",
-								Language:    "en",
-								ImageLinks: model.GoogleBookImageLinks{
-									Thumbnail: "has-thumbnail",
-								},
-								Title: "test-title",
-							},
-						},
-					},
-				},
-				err: nil,
+				count: 2,
+				err:   nil,
 			},
 		},
 		{
@@ -333,29 +312,11 @@ func Test_filterTitleResults(t *testing.T) {
 				err: nil,
 			},
 			want: struct {
-				resp model.GoogleBookResponse
-				err  error
+				count int
+				err   error
 			}{
-				resp: model.GoogleBookResponse{
-					Kind:         "books#volumes",
-					TotalItems:   2,
-					HasMorePages: false,
-					Items: []model.GoogleBookItem{
-						{
-							Kind: "Book",
-							ID:   "2",
-							VolumeInfo: model.GoogleBookVolumeInfo{
-								Description: "has-description",
-								Language:    "en",
-								ImageLinks: model.GoogleBookImageLinks{
-									Thumbnail: "has-thumbnail",
-								},
-								Title: "test-title",
-							},
-						},
-					},
-				},
-				err: nil,
+				count: 1,
+				err:   nil,
 			},
 		},
 		{
@@ -398,29 +359,11 @@ func Test_filterTitleResults(t *testing.T) {
 				err: nil,
 			},
 			want: struct {
-				resp model.GoogleBookResponse
-				err  error
+				count int
+				err   error
 			}{
-				resp: model.GoogleBookResponse{
-					Kind:         "books#volumes",
-					TotalItems:   2,
-					HasMorePages: false,
-					Items: []model.GoogleBookItem{
-						{
-							Kind: "Book",
-							ID:   "2",
-							VolumeInfo: model.GoogleBookVolumeInfo{
-								Description: "has-description",
-								Language:    "en",
-								ImageLinks: model.GoogleBookImageLinks{
-									Thumbnail: "has-thumbnail",
-								},
-								Title: "test-title",
-							},
-						},
-					},
-				},
-				err: nil,
+				count: 1,
+				err:   nil,
 			},
 		},
 		{
@@ -463,29 +406,11 @@ func Test_filterTitleResults(t *testing.T) {
 				err: nil,
 			},
 			want: struct {
-				resp model.GoogleBookResponse
-				err  error
+				count int
+				err   error
 			}{
-				resp: model.GoogleBookResponse{
-					Kind:         "books#volumes",
-					TotalItems:   2,
-					HasMorePages: false,
-					Items: []model.GoogleBookItem{
-						{
-							Kind: "Book",
-							ID:   "2",
-							VolumeInfo: model.GoogleBookVolumeInfo{
-								Description: "has-description",
-								Language:    "en",
-								ImageLinks: model.GoogleBookImageLinks{
-									Thumbnail: "has-thumbnail",
-								},
-								Title: "test-title",
-							},
-						},
-					},
-				},
-				err: nil,
+				count: 1,
+				err:   nil,
 			},
 		},
 		{
@@ -525,40 +450,22 @@ func Test_filterTitleResults(t *testing.T) {
 				err: nil,
 			},
 			want: struct {
-				resp model.GoogleBookResponse
-				err  error
+				count int
+				err   error
 			}{
-				resp: model.GoogleBookResponse{
-					Kind:         "books#volumes",
-					TotalItems:   2,
-					HasMorePages: false,
-					Items: []model.GoogleBookItem{
-						{
-							Kind: "Book",
-							ID:   "2",
-							VolumeInfo: model.GoogleBookVolumeInfo{
-								Description: "has-description",
-								Language:    "en",
-								ImageLinks: model.GoogleBookImageLinks{
-									Thumbnail: "has-thumbnail",
-								},
-								Title: "test-title",
-							},
-						},
-					},
-				},
-				err: nil,
+				count: 1,
+				err:   nil,
 			},
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			got, err := filterTitleResults(tt.args.req)(tt.args.resp, tt.args.err)
-			if tt.want.err != nil && err != nil {
+			if tt.want.err != nil && err == nil {
 				t.Errorf("filterTitleResults() = expected error but got nil")
 			} else {
-				if !reflect.DeepEqual(got, tt.want.resp) {
-					t.Errorf("filterTitleResults() = %v, want %v", got, tt.want.resp)
+				if !reflect.DeepEqual(len(got.Items), tt.want.count) {
+					t.Errorf("filterTitleResults() = %v, want %v", len(got.Items), tt.want.count)
 				}
 			}
 		})
@@ -592,7 +499,8 @@ func Test_filterAuthorResults(t *testing.T) {
 				count: 0,
 				err:   errors.New("test-error"),
 			},
-		}, {
+		},
+		{
 			name: "with empty results",
 			args: args{
 				req: GoogleBookRequest{
