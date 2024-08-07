@@ -565,6 +565,312 @@ func Test_filterTitleResults(t *testing.T) {
 	}
 }
 
+func Test_filterAuthorResults(t *testing.T) {
+	type args struct {
+		req  GoogleBookRequest
+		resp model.GoogleBookResponse
+		err  error
+	}
+	tests := []struct {
+		name string
+		args args
+		want struct {
+			count int
+			err   error
+		}
+	}{
+		{
+			name: "with error",
+			args: args{
+				req: GoogleBookRequest{},
+				err: errors.New("test-error"),
+			},
+			want: struct {
+				count int
+				err   error
+			}{
+				count: 0,
+				err:   errors.New("test-error"),
+			},
+		}, {
+			name: "with empty results",
+			args: args{
+				req: GoogleBookRequest{
+					Author: "Test-Author",
+				},
+				resp: model.GoogleBookResponse{
+					Kind:         "books#volumes",
+					TotalItems:   0,
+					HasMorePages: false,
+					Items:        []model.GoogleBookItem{},
+				},
+				err: nil,
+			},
+			want: struct {
+				count int
+				err   error
+			}{
+				count: 0,
+				err:   nil,
+			},
+		},
+		{
+			name: "with results and nothing to filter",
+			args: args{
+				req: GoogleBookRequest{
+					Author: "Test-Author",
+				},
+				resp: model.GoogleBookResponse{
+					Kind:         "books#volumes",
+					TotalItems:   2,
+					HasMorePages: false,
+					Items: []model.GoogleBookItem{
+						{
+							Kind: "Book",
+							ID:   "1",
+							VolumeInfo: model.GoogleBookVolumeInfo{
+								Description: "has-description",
+								Language:    "en",
+								ImageLinks: model.GoogleBookImageLinks{
+									Thumbnail: "http://example.com/has-thumbnail",
+								},
+								Title:   "test-title",
+								Authors: []string{"Test-Author"},
+							},
+						},
+						{
+							Kind: "Book",
+							ID:   "2",
+							VolumeInfo: model.GoogleBookVolumeInfo{
+								Description: "has-description",
+								Language:    "en",
+								ImageLinks: model.GoogleBookImageLinks{
+									Thumbnail: "http://example.com/has-thumbnail",
+								},
+								Title:   "test-title",
+								Authors: []string{"Test-Author"},
+							},
+						},
+					},
+				},
+				err: nil,
+			},
+			want: struct {
+				count int
+				err   error
+			}{
+				count: 2,
+				err:   nil,
+			},
+		},
+		{
+			name: "with results and filtered author",
+			args: args{
+				req: GoogleBookRequest{
+					Author: "Test-Author",
+				},
+				resp: model.GoogleBookResponse{
+					Kind:         "books#volumes",
+					TotalItems:   2,
+					HasMorePages: false,
+					Items: []model.GoogleBookItem{
+						{
+							Kind: "Book",
+							ID:   "1",
+							VolumeInfo: model.GoogleBookVolumeInfo{
+								Description: "has-description",
+								Language:    "en",
+								ImageLinks: model.GoogleBookImageLinks{
+									Thumbnail: "has-thumbnail",
+								},
+								Title:   "test-title",
+								Authors: []string{"not-the-author-you-are-looking-for"},
+							},
+						},
+						{
+							Kind: "Book",
+							ID:   "2",
+							VolumeInfo: model.GoogleBookVolumeInfo{
+								Description: "has-description",
+								Language:    "en",
+								ImageLinks: model.GoogleBookImageLinks{
+									Thumbnail: "has-thumbnail",
+								},
+								Title:   "test-title",
+								Authors: []string{"Test-Author"},
+							},
+						},
+					},
+				},
+				err: nil,
+			},
+			want: struct {
+				count int
+				err   error
+			}{
+				count: 1,
+				err:   nil,
+			},
+		},
+		{
+			name: "with results and filtered non-english",
+			args: args{
+				req: GoogleBookRequest{
+					Author: "Test-Author",
+				},
+				resp: model.GoogleBookResponse{
+					Kind:         "books#volumes",
+					TotalItems:   2,
+					HasMorePages: false,
+					Items: []model.GoogleBookItem{
+						{
+							Kind: "Book",
+							ID:   "1",
+							VolumeInfo: model.GoogleBookVolumeInfo{
+								Description: "has-description",
+								Language:    "NOT-en",
+								ImageLinks: model.GoogleBookImageLinks{
+									Thumbnail: "has-thumbnail",
+								},
+								Title:   "test-title",
+								Authors: []string{"Test-Author"},
+							},
+						},
+						{
+							Kind: "Book",
+							ID:   "2",
+							VolumeInfo: model.GoogleBookVolumeInfo{
+								Description: "has-description",
+								Language:    "en",
+								ImageLinks: model.GoogleBookImageLinks{
+									Thumbnail: "has-thumbnail",
+								},
+								Title:   "test-title",
+								Authors: []string{"Test-Author"},
+							},
+						},
+					},
+				},
+				err: nil,
+			},
+			want: struct {
+				count int
+				err   error
+			}{
+				count: 1,
+				err:   nil,
+			},
+		},
+		{
+			name: "with results and filtered no-description",
+			args: args{
+				req: GoogleBookRequest{
+					Author: "Test-Author",
+				},
+				resp: model.GoogleBookResponse{
+					Kind:         "books#volumes",
+					TotalItems:   2,
+					HasMorePages: false,
+					Items: []model.GoogleBookItem{
+						{
+							Kind: "Book",
+							ID:   "1",
+							VolumeInfo: model.GoogleBookVolumeInfo{
+								// Description: nil, -- no description
+								Language: "en",
+								ImageLinks: model.GoogleBookImageLinks{
+									Thumbnail: "has-thumbnail",
+								},
+								Title:   "test-title",
+								Authors: []string{"Test-Author"},
+							},
+						},
+						{
+							Kind: "Book",
+							ID:   "2",
+							VolumeInfo: model.GoogleBookVolumeInfo{
+								Description: "has-description",
+								Language:    "en",
+								ImageLinks: model.GoogleBookImageLinks{
+									Thumbnail: "has-thumbnail",
+								},
+								Title:   "test-title",
+								Authors: []string{"Test-Author"},
+							},
+						},
+					},
+				},
+				err: nil,
+			},
+			want: struct {
+				count int
+				err   error
+			}{
+				count: 1,
+				err:   nil,
+			},
+		},
+		{
+			name: "with results and filtered no-image",
+			args: args{
+				req: GoogleBookRequest{
+					Author: "Test-Author",
+				},
+				resp: model.GoogleBookResponse{
+					Kind:         "books#volumes",
+					TotalItems:   2,
+					HasMorePages: false,
+					Items: []model.GoogleBookItem{
+						{
+							Kind: "Book",
+							ID:   "1",
+							VolumeInfo: model.GoogleBookVolumeInfo{
+								Description: "has-description",
+								Language:    "en",
+								Title:       "test-title",
+								Authors:     []string{"Test-Author"},
+							},
+						},
+						{
+							Kind: "Book",
+							ID:   "2",
+							VolumeInfo: model.GoogleBookVolumeInfo{
+								Description: "has-description",
+								Language:    "en",
+								ImageLinks: model.GoogleBookImageLinks{
+									Thumbnail: "has-thumbnail",
+								},
+								Title:   "test-title",
+								Authors: []string{"Test-Author"},
+							},
+						},
+					},
+				},
+				err: nil,
+			},
+			want: struct {
+				count int
+				err   error
+			}{
+				count: 1,
+				err:   nil,
+			},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got, err := filterAuthorResults(tt.args.req)(tt.args.resp, tt.args.err)
+			if tt.want.err != nil && err == nil {
+				t.Errorf("filterResults() = expected error but got nil")
+			} else {
+				if !reflect.DeepEqual(len(got.Items), tt.want.count) {
+					t.Errorf("filterResults() = %v, want %v", got, tt.want.count)
+				}
+			}
+		})
+	}
+}
+
 func Test_filterExactAuthor(t *testing.T) {
 	type args struct {
 		book model.GoogleBookItem

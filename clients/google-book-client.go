@@ -60,7 +60,7 @@ func (bc GoogleBookClient) ByAuthor(ctx context.Context, request GoogleBookReque
 	} else {
 		query := fmt.Sprintf("inauthor:\"%s\"", url.QueryEscape(request.Author))
 		return sortByPublishedDate(
-			filterResults(request)(
+			filterAuthorResults(request)(
 				bc.bookRequest(ctx, query, request)))
 	}
 }
@@ -102,7 +102,7 @@ func filterTitleResults(req GoogleBookRequest) func(model.GoogleBookResponse, er
 	}
 }
 
-func filterResults(req GoogleBookRequest) func(model.GoogleBookResponse, error) (model.GoogleBookResponse, error) {
+func filterAuthorResults(req GoogleBookRequest) func(model.GoogleBookResponse, error) (model.GoogleBookResponse, error) {
 	return func(resp model.GoogleBookResponse, err error) (model.GoogleBookResponse, error) {
 		if err != nil {
 			return resp, err
