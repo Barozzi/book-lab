@@ -7,6 +7,9 @@ pactmode:
 test:
 	go test ./...
 
+watch:
+	gowatch
+
 testv:
 	go test -v ./...
 
@@ -16,4 +19,4 @@ docker:
 dockerrun:
 	docker run -it -p 8080:8080 --rm book-lab-api:latest
 
-.PHONY: run pactmode docker dockerrun test testv
+.PHONY: run pactmode docker dockerrun test testv watch
