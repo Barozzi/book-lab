@@ -164,7 +164,76 @@ func TestGoogleBookClient_ByTitle(t *testing.T) {
 	}
 }
 
-func Test_filterTitleResults(t *testing.T) {
+func Test_filterTitleResults2(t *testing.T) {
+	book1 := model.GoogleBookItem{
+		Kind: "Book",
+		ID:   "1",
+		VolumeInfo: model.GoogleBookVolumeInfo{
+			Description: "has-description",
+			Language:    "en",
+			ImageLinks: model.GoogleBookImageLinks{
+				Thumbnail: "has-thumbnail",
+			},
+			Title: "test-title",
+		},
+	}
+	book2 := model.GoogleBookItem{
+		Kind: "Book",
+		ID:   "2",
+		VolumeInfo: model.GoogleBookVolumeInfo{
+			Description: "has-description",
+			Language:    "en",
+			ImageLinks: model.GoogleBookImageLinks{
+				Thumbnail: "has-thumbnail",
+			},
+			Title: "test-title",
+		},
+	}
+	book2NoTitle := model.GoogleBookItem{
+		Kind: "Book",
+		ID:   "2",
+		VolumeInfo: model.GoogleBookVolumeInfo{
+			Description: "has-description",
+			Language:    "en",
+			ImageLinks: model.GoogleBookImageLinks{
+				Thumbnail: "has-thumbnail",
+			},
+		},
+	}
+	book2NotEnglish := model.GoogleBookItem{
+		Kind: "Book",
+		ID:   "2",
+		VolumeInfo: model.GoogleBookVolumeInfo{
+			Description: "has-description",
+			Language:    "it",
+			ImageLinks: model.GoogleBookImageLinks{
+				Thumbnail: "has-thumbnail",
+			},
+			Title: "test-title",
+		},
+	}
+	book2NoDesc := model.GoogleBookItem{
+		Kind: "Book",
+		ID:   "2",
+		VolumeInfo: model.GoogleBookVolumeInfo{
+			Language: "en",
+			ImageLinks: model.GoogleBookImageLinks{
+				Thumbnail: "has-thumbnail",
+			},
+			Title: "test-title",
+		},
+	}
+	book2NoImage := model.GoogleBookItem{
+		Kind: "Book",
+		ID:   "2",
+		VolumeInfo: model.GoogleBookVolumeInfo{
+			Description: "has-description",
+			Language:    "en",
+			ImageLinks:  model.GoogleBookImageLinks{},
+			Title:       "test-title",
+		},
+	}
+
 	type args struct {
 		req  GoogleBookRequest
 		resp model.GoogleBookResponse
@@ -224,32 +293,7 @@ func Test_filterTitleResults(t *testing.T) {
 					Kind:         "books#volumes",
 					TotalItems:   2,
 					HasMorePages: false,
-					Items: []model.GoogleBookItem{
-						{
-							Kind: "Book",
-							ID:   "1",
-							VolumeInfo: model.GoogleBookVolumeInfo{
-								Description: "has-description",
-								Language:    "en",
-								ImageLinks: model.GoogleBookImageLinks{
-									Thumbnail: "has-thumbnail",
-								},
-								Title: "test-title",
-							},
-						},
-						{
-							Kind: "Book",
-							ID:   "2",
-							VolumeInfo: model.GoogleBookVolumeInfo{
-								Description: "has-description",
-								Language:    "en",
-								ImageLinks: model.GoogleBookImageLinks{
-									Thumbnail: "has-thumbnail",
-								},
-								Title: "test-title",
-							},
-						},
-					},
+					Items:        []model.GoogleBookItem{book1, book2},
 				},
 				err: nil,
 			},
@@ -271,32 +315,7 @@ func Test_filterTitleResults(t *testing.T) {
 					Kind:         "books#volumes",
 					TotalItems:   2,
 					HasMorePages: false,
-					Items: []model.GoogleBookItem{
-						{
-							Kind: "Book",
-							ID:   "1",
-							VolumeInfo: model.GoogleBookVolumeInfo{
-								Description: "has-description",
-								Language:    "en",
-								ImageLinks: model.GoogleBookImageLinks{
-									Thumbnail: "has-thumbnail",
-								},
-								Title: "NOT-test-title",
-							},
-						},
-						{
-							Kind: "Book",
-							ID:   "2",
-							VolumeInfo: model.GoogleBookVolumeInfo{
-								Description: "has-description",
-								Language:    "en",
-								ImageLinks: model.GoogleBookImageLinks{
-									Thumbnail: "has-thumbnail",
-								},
-								Title: "test-title",
-							},
-						},
-					},
+					Items:        []model.GoogleBookItem{book1, book2NoTitle},
 				},
 				err: nil,
 			},
@@ -318,32 +337,7 @@ func Test_filterTitleResults(t *testing.T) {
 					Kind:         "books#volumes",
 					TotalItems:   2,
 					HasMorePages: false,
-					Items: []model.GoogleBookItem{
-						{
-							Kind: "Book",
-							ID:   "1",
-							VolumeInfo: model.GoogleBookVolumeInfo{
-								Description: "has-description",
-								Language:    "NOT-en",
-								ImageLinks: model.GoogleBookImageLinks{
-									Thumbnail: "has-thumbnail",
-								},
-								Title: "test-title",
-							},
-						},
-						{
-							Kind: "Book",
-							ID:   "2",
-							VolumeInfo: model.GoogleBookVolumeInfo{
-								Description: "has-description",
-								Language:    "en",
-								ImageLinks: model.GoogleBookImageLinks{
-									Thumbnail: "has-thumbnail",
-								},
-								Title: "test-title",
-							},
-						},
-					},
+					Items:        []model.GoogleBookItem{book1, book2NotEnglish},
 				},
 				err: nil,
 			},
@@ -365,32 +359,7 @@ func Test_filterTitleResults(t *testing.T) {
 					Kind:         "books#volumes",
 					TotalItems:   2,
 					HasMorePages: false,
-					Items: []model.GoogleBookItem{
-						{
-							Kind: "Book",
-							ID:   "1",
-							VolumeInfo: model.GoogleBookVolumeInfo{
-								// Description: nil, -- no description
-								Language: "en",
-								ImageLinks: model.GoogleBookImageLinks{
-									Thumbnail: "has-thumbnail",
-								},
-								Title: "test-title",
-							},
-						},
-						{
-							Kind: "Book",
-							ID:   "2",
-							VolumeInfo: model.GoogleBookVolumeInfo{
-								Description: "has-description",
-								Language:    "en",
-								ImageLinks: model.GoogleBookImageLinks{
-									Thumbnail: "has-thumbnail",
-								},
-								Title: "test-title",
-							},
-						},
-					},
+					Items:        []model.GoogleBookItem{book1, book2NoDesc},
 				},
 				err: nil,
 			},
@@ -412,29 +381,7 @@ func Test_filterTitleResults(t *testing.T) {
 					Kind:         "books#volumes",
 					TotalItems:   2,
 					HasMorePages: false,
-					Items: []model.GoogleBookItem{
-						{
-							Kind: "Book",
-							ID:   "1",
-							VolumeInfo: model.GoogleBookVolumeInfo{
-								Description: "has-description",
-								Language:    "en",
-								Title:       "test-title",
-							},
-						},
-						{
-							Kind: "Book",
-							ID:   "2",
-							VolumeInfo: model.GoogleBookVolumeInfo{
-								Description: "has-description",
-								Language:    "en",
-								ImageLinks: model.GoogleBookImageLinks{
-									Thumbnail: "has-thumbnail",
-								},
-								Title: "test-title",
-							},
-						},
-					},
+					Items:        []model.GoogleBookItem{book1, book2NoImage},
 				},
 				err: nil,
 			},
