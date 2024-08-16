@@ -138,7 +138,6 @@ func filterHasDescription(book model.GoogleBookItem) bool {
 }
 
 func filterHasImage(book model.GoogleBookItem) bool {
-	// foo
 	return len(book.VolumeInfo.ImageLinks.Thumbnail) > 10
 }
 
