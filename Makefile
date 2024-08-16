@@ -1,5 +1,5 @@
 run:
-	go run main.go
+	air
 
 pactmode:
 	PACT_MODE=true go run main.go
@@ -8,7 +8,7 @@ test:
 	go test ./...
 
 watch:
-	gowatch
+	gow test ./...
 
 testv:
 	go test -v ./...

@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"context"
 	"errors"
+	"fmt"
 	"io"
 	"net/http"
 	"reflect"
@@ -157,14 +158,14 @@ func TestGoogleBookClient_ByTitle(t *testing.T) {
 				t.Errorf("GoogleBookClient.ByTitle() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
-			if !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("GoogleBookClient.ByTitle() = %v, want %v", got, tt.want)
-			}
+			assert.Equal(t, got.Kind, tt.want.Kind)
+			assert.Equal(t, got.Items, tt.want.Items)
+			assert.Equal(t, got.TotalItems, tt.want.TotalItems)
 		})
 	}
 }
 
-func Test_filterTitleResults2(t *testing.T) {
+func Test_filterTitleResults(t *testing.T) {
 	book1 := model.GoogleBookItem{
 		Kind: "Book",
 		ID:   "1",
@@ -772,6 +773,21 @@ func Test_filterExactAuthor(t *testing.T) {
 }
 
 func Test_buildRequestUrl(t *testing.T) {
+	requestWithStart := GoogleBookRequest{
+		Start: 42,
+	}
+	requestWithLimit := GoogleBookRequest{
+		Limit: 99,
+	}
+	requestWithStartAndLimit := GoogleBookRequest{
+		Start: 42,
+		Limit: 99,
+	}
+	testQuery := "Test Query"
+	expectedUrl := fmt.Sprintf("https://www.googleapis.com/books/v1/volumes?q=%s", testQuery)
+	expectedUrlWithStart := fmt.Sprintf("https://www.googleapis.com/books/v1/volumes?q=%s&startIndex=%d", testQuery, requestWithStart.Start)
+	expectedUrlWithStartAndLimit := fmt.Sprintf("https://www.googleapis.com/books/v1/volumes?q=%s&startIndex=%d&maxResults=%d", testQuery, requestWithStartAndLimit.Start, requestWithStartAndLimit.Limit)
+	expectedUrlWithLimit := fmt.Sprintf("https://www.googleapis.com/books/v1/volumes?q=%s&maxResults=%d", testQuery, requestWithLimit.Limit)
 	type args struct {
 		query   string
 		request GoogleBookRequest
@@ -784,56 +800,42 @@ func Test_buildRequestUrl(t *testing.T) {
 		{
 			name: "with no query string",
 			args: args{
-				query: "",
-				request: GoogleBookRequest{
-					Title: "Test",
-				},
+				query:   "",
+				request: GoogleBookRequest{},
 			},
 			want: "https://www.googleapis.com/books/v1/volumes?q=",
 		},
 		{
 			name: "with a query string",
 			args: args{
-				query: "Testy-Testersons-Novel",
-				request: GoogleBookRequest{
-					Title: "Test",
-				},
+				query:   testQuery,
+				request: GoogleBookRequest{},
 			},
-			want: "https://www.googleapis.com/books/v1/volumes?q=Testy-Testersons-Novel",
+			want: expectedUrl,
 		},
 		{
 			name: "with a start",
 			args: args{
-				query: "Testy-Testersons-Novel",
-				request: GoogleBookRequest{
-					Title: "Test",
-					Start: 42,
-				},
+				query:   testQuery,
+				request: requestWithStart,
 			},
-			want: "https://www.googleapis.com/books/v1/volumes?q=Testy-Testersons-Novel&startIndex=42",
+			want: expectedUrlWithStart,
 		},
 		{
 			name: "with a Limit",
 			args: args{
-				query: "Testy-Testersons-Novel",
-				request: GoogleBookRequest{
-					Title: "Test",
-					Limit: 42,
-				},
+				query:   testQuery,
+				request: requestWithLimit,
 			},
-			want: "https://www.googleapis.com/books/v1/volumes?q=Testy-Testersons-Novel&maxResults=42",
+			want: expectedUrlWithLimit,
 		},
 		{
 			name: "with a Start and a Limit",
 			args: args{
-				query: "Testy-Testersons-Novel",
-				request: GoogleBookRequest{
-					Title: "Test",
-					Start: 24,
-					Limit: 42,
-				},
+				query:   testQuery,
+				request: requestWithStartAndLimit,
 			},
-			want: "https://www.googleapis.com/books/v1/volumes?q=Testy-Testersons-Novel&startIndex=24&maxResults=42",
+			want: expectedUrlWithStartAndLimit,
 		},
 	}
 	for _, tt := range tests {
@@ -864,7 +866,7 @@ func Test_filterExactTitle(t *testing.T) {
 			want: false,
 		},
 		{
-			name: "with close match on title",
+			name: "with close match on title  ",
 			args: args{
 				book: model.GoogleBookItem{
 					VolumeInfo: model.GoogleBookVolumeInfo{
