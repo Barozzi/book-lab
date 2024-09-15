@@ -16,7 +16,11 @@ testv:
 docker:
 	docker build -t book-lab-api:latest .
 
+dockerpush:
+	docker tag book-lab-api:latest gregbarozzi/book-lab-api:latest
+	docker push gregbarozzi/book-lab-api:latest
+
 dockerrun:
 	docker run -it -p 8080:8080 --rm book-lab-api:latest
 
-.PHONY: run pactmode docker dockerrun test testv watch
+.PHONY: run pactmode docker dockerpush dockerrun test testv watch

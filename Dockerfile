@@ -1,4 +1,3 @@
-# Dockerfile.distroless
 FROM golang:1.21
 
 WORKDIR /app
