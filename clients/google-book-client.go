@@ -95,8 +95,16 @@ func filterTitleResults(req GoogleBookRequest) func(model.GoogleBookResponse, er
 				filteredBooks = append(filteredBooks, book)
 			}
 		}
+		if len(filteredBooks) == 0 {
+			fmt.Println("Overfiltered: ", req.Title)
+			for _, book := range resp.Items {
+				if filterCloseTitle(book, req.Title) && filterIsEnglish(book) && filterHasImage(book) {
+					filteredBooks = append(filteredBooks, book)
+				}
+			}
+		}
 
-		// return filtered results
+		// return filtered results unless all results were filtered
 		resp.Items = filteredBooks
 		return resp, err
 	}
@@ -123,6 +131,10 @@ func filterAuthorResults(req GoogleBookRequest) func(model.GoogleBookResponse, e
 
 func filterExactTitle(book model.GoogleBookItem, name string) bool {
 	return normalizeString(book.VolumeInfo.Title) == normalizeString(name)
+}
+
+func filterCloseTitle(book model.GoogleBookItem, name string) bool {
+	return strings.Contains(normalizeString(book.VolumeInfo.Title), normalizeString(name))
 }
 
 func filterExactAuthor(book model.GoogleBookItem, name string) bool {
